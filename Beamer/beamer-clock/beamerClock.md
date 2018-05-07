@@ -22,16 +22,16 @@ This command takes advantage of the fact that beamer page counters can be used t
 - You might need to call `\usepackage{appendixnumberbeamer}`
 so that the total frame number stops at `\appendix`.
 
-You can then use it, as an example, in your footer next to the frame number (see above) or in section title pages:
+You can then use it, as an example, in your footer next to the frame number (see gif above) or in section title pages:
 
 ```tex
 % Example of use
 \AtBeginSection[]{
-	\begin{frame}
-	 \centering\usebeamerfont{section page}
-	 section \insertsectionnumber{}
-	 \myBeamerClock{1ex}{-1ex}
-	 \insertsection
+  \begin{frame}
+    \centering\usebeamerfont{section page}
+    section \insertsectionnumber{}
+    \myBeamerClock{1ex}{-1ex}
+    \insertsection
   \end{frame}
 }
 ```
