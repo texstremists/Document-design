@@ -1,0 +1,78 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[T1]{fontenc}
+
+% Comment all for beamer default
+%\usepackage{lmodern}\newcommand{\TypefaceName}{\texttt{lmodern}}
+%\usepackage{cmbright}\newcommand{\TypefaceName}{\texttt{cmbright}}
+%\usepackage{arev}\newcommand{\TypefaceName}{\texttt{arev}}
+%\usepackage{sansmathfonts}\newcommand{\TypefaceName}{\texttt{sansmathfonts}}
+%\usepackage{sansmath}\newcommand{\TypefaceName}{\texttt{sansmath}}
+%\usepackage{newtxsf}\newcommand{\TypefaceName}{\texttt{newtxsf}}
+\usepackage[math]{iwona}\newcommand{\TypefaceName}{\texttt{iwona}}
+%\usepackage[sfmath]{kpfonts}\newcommand{\TypefaceName}{\texttt{kpfonts}}
+%\usepackage[math]{kurier}\newcommand{\TypefaceName}{\texttt{kurier}}
+%\usepackage{lxfonts}\newcommand{\TypefaceName}{\texttt{lxfonts}}\usefonttheme{professionalfonts} % second macro necessary with beamer
+%\usepackage[cm]{sfmath}\newcommand{\TypefaceName}{\texttt{sfmath} (Computer Modern)}  % probably very close to default
+%\usepackage[lm]{sfmath}\newcommand{\TypefaceName}{\texttt{sfmath} (Latin Modern)}  % probably very close to lmodern
+%\usepackage[helvet]{sfmath}\newcommand{\TypefaceName}{\texttt{sfmath} (Helvetica)}
+%\usepackage[tx]{sfmath}\newcommand{\TypefaceName}{\texttt{sfmath} (TX fonts)}
+%\usepackage[px]{sfmath}\newcommand{\TypefaceName}{\texttt{sfmath} (PX fonts)}
+% See sfmath package's documentation at http://dtrx.de/od/tex/sfmath.html
+
+% With LuaLaTeX, uncomment all lines in block below
+%\usepackage{unicode-math}
+%\setmathfont[version=gfs]{GFS Neohellenic Math}
+%\setmathfont[version=asana]{Asana Math}
+%\setmathfont[version=xits]{XITS Math}
+%\setmathfont[version=stix]{STIX Math}
+%\setmathfont[version=stix2]{STIX Two Math}
+%\setmathfont[version=termes]{TeX Gyre Termes Math}
+%\setmathfont[version=bonum]{TeX Gyre Bonum Math}
+%\setmathfont[version=schola]{TeX Gyre Schola Math}
+%\setmathfont[version=pagella]{TeX Gyre Pagella Math}
+%\setmathfont[version=dejavu]{TeX Gyre DejaVu Math}
+%\setmathfont[version=libertinus]{Libertinus Math}
+%\setmathfont[version=euler]{Neo Euler}
+
+
+%\mathversion{gfs}\newcommand{\TypefaceName}{GFS Neohellenic} % you probably don't have it
+%\mathversion{asana}\newcommand{\TypefaceName}{Asana}
+%\mathversion{xits}\newcommand{\TypefaceName}{XITS} 
+%\mathversion{stix}\newcommand{\TypefaceName}{STIX} 
+%\mathversion{stix2}\newcommand{\TypefaceName}{STIX 2} % you probably don't have it
+%\mathversion{termes}\newcommand{\TypefaceName}{TeX Gyre Termes} 
+%\mathversion{bonum}\newcommand{\TypefaceName}{TeX Gyre Bonum} 
+%\mathversion{schola}\newcommand{\TypefaceName}{TeX Gyre Schola} 
+%\mathversion{pagella}\newcommand{\TypefaceName}{TeX Gyre Pagella} 
+%\mathversion{dejavu}\newcommand{\TypefaceName}{TeX Gyre DejaVu} 
+%\mathversion{libertinus}\newcommand{\TypefaceName}{Libertinus} 
+%\mathversion{euler}\newcommand{\TypefaceName}{Neo Euler} % not recommended
+
+\usepackage{amsmath}
+\DeclareMathOperator{\diffd}{d}
+
+\begin{document}
+\begin{frame}
+  \frametitle{Test sans serif math typefaces: \TypefaceName}
+  \[
+    \int_{0}^{1} \sqrt{x^{4}}\,\diffd x = \frac{1}{3} \qquad\qquad
+    \sum_{k=0}^{\infty} \frac{1}{k^{2}} = \frac{\pi^{2}}{6}
+  \]
+  \[
+    0123456789 \infty\propto\emptyset\partial\eth\hbar\hslash\nabla\aleph\mho\surd
+  \]
+  \[
+    abcdefghijklmnopqsrtuvwxyz \quad     ABCDEFGHIJKLMNOPQSRTUVWXYZ
+  \]
+  \[
+    \alpha\beta\gamma\digamma\delta\epsilon\varepsilon\zeta\eta\theta\vartheta\iota\kappa\varkappa\lambda\mu\nu\xi\pi\varpi\rho\varrho\sigma\varsigma\tau\upsilon\phi\varphi\chi\psi\omega \qquad \Gamma\Delta\Theta\Lambda\Xi\Pi\Sigma\Upsilon\Phi\Psi\Omega
+  \]
+\end{frame}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% TeX-engine: luatex
+%%% End:

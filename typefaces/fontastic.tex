@@ -1,0 +1,616 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[british]{babel}
+\usepackage{microtype}
+\usepackage{csquotes}
+\usepackage{xfrac}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+% \usepackage{tgpagella} % qpl
+% \usepackage{fourier} % fut or put
+% \usepackage[scaled]{helvet} % phv
+% \usepackage{libertine}
+% \usepackage{kpfonts}
+% PSNFSS font families
+% Times: ptm
+% Palatino: ppl
+% New century Schoolbook: pnc
+% Bookman: pbk
+% Helvetica: phv
+% Avant Garde: pag
+% Courier: pcr
+% Zapf Chancery: pzc
+% Utopia: put
+% Charter: pch
+
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase,Numbers=OldStyle}
+\usepackage{unicode-math}
+\setmathfont[version=lm]{Latin Modern Math}
+\usepackage[T1]{fontenc}
+
+\newcommand{\mysection}[1]{\section{#1}}
+\newcommand{\mysubsection}[1]{\subsection{#1}}
+\newenvironment{localTypefaceT1}[1]{%
+  \fontfamily{#1}\selectfont%
+  \renewcommand{\mysection}[1]{\section{\fontfamily{#1}\selectfont ##1}}
+  \renewcommand{\mysubsection}[1]{\subsection{\fontfamily{#1}\selectfont ##1}}
+  \renewcommand\thesection{\fontfamily{#1}\selectfont\arabic{section}}
+  \renewcommand\thesubsection{\fontfamily{#1}\selectfont\thesection.\arabic{subsection}}
+}{\clearpage}
+\newenvironment{localTypefaceOT}[1]{%
+  \setmainfont{#1}%
+}{\clearpage}
+
+\usepackage{lipsum}
+\usepackage[math,pangram]{blindtext}
+\newcommand{\sampleText}{%
+  % \lipsum[1]%
+  % The quick brown fox jumps over the sleazy dog (0123456789).%
+  % \blindtext[1]%
+  Offrez ce vieux whisky au juge blond qui souffle sur son \^ile int\'erieure, \`a c\^ot\'e de \textbf{l'alc\^ove} ovo\"ide, o\`u les b\^uches se consument dans \textbf{l'\^atre}, ce qui lui permet de penser \`a la \textbf{c\ae{}nog\'en\`ese} de l'\^etre dont il est question dans la cause ambigu\"e entendue \`a Mo\"y, dans un capharna\"um qui, affirme-t-il, défigure \textbf{\c{c}\`a} et l\`a la qualit\'e de son \enquote{\oe{}uvre}. 
+  % D\`es No\"el o\`u un z\'ephyr ha\"i me v\^et de gla\c{}cons w\"urmiens je d\^ine d'exquis r\^otis de b\oe{}uf au kir \`a l'a\"y d'\^age m\^ur \& c\ae{}tera !%
+  (0123456789 ?!\textquestiondown\&\%\S\$@\#\P\ddag{} \H{o}\k{a}\l\={o}\b{o}\.{o} \d{u}\r{a}\u{o}\v{s}\t{oo}\oð)
+}
+\renewcommand{\blindmarkup}[1]{\textbf{#1}}
+\newcommand{\myContent}{%
+  \mysubsection{Roman}
+  {\upshape\mdseries \sampleText}
+  
+  % {\upshape\bfseries \sampleText}
+
+  \mysubsection{\itshape{}Italic}
+  {\itshape\mdseries \sampleText}
+  
+  % {\itshape\bfseries \sampleText}
+  
+  \mysubsection{\slshape{}Slanted}
+  {\slshape\mdseries \sampleText}
+  
+  % {\slshape\bfseries \sampleText}
+  
+  \mysubsection{\scshape{}Small capitals}
+  {\scshape\mdseries \sampleText}
+  
+  % {\scshape\bfseries \sampleText}
+  % \[ \frac{1}{2\pi i}\int_{\partial\Omega} \phi = \sum_{k=1}^{\infty} \gamma_k^2 \]
+}
+\newcommand{\mathContent}{
+  \[
+    \int_{0}^{1} \sqrt{x^{4}}\,\text{d}x = \sfrac{1}{3} \qquad
+    \sum_{k=0}^{\infty} \frac{1}{k^{2}} = \frac{\pi^{2}}{6} \qquad
+    0123456789 \infty\propto\emptyset\partial\eth\hbar\hslash\nabla\aleph\mho\surd
+  \]
+  \[
+    abcdefghijklmnopqsrtuvwxyz \quad
+    \alpha\beta\gamma\digamma\delta\epsilon\varepsilon\zeta\eta\theta\vartheta\iota\kappa\varkappa\lambda\mu\nu\xi\omicron\pi\varpi\rho\varrho\sigma\varsigma\tau\upsilon\phi\varphi\chi\psi\omega
+  \]
+  \[
+    ABCDEFGHIJKLMNOPQSRTUVWXYZ \quad
+    \Alpha\Beta\Gamma\Delta\Epsilon\Zeta\Eta\Theta\Iota\Kappa\Lambda\Mu\Nu\Xi\Omicron\Pi\Rho\Sigma\Tau\Upsilon\Phi\Psi\Omega
+  \]
+}
+
+\title{\Huge Fontastic}
+\author{\Large Quentin Ayoul-Guilmard}
+
+\begin{document}
+
+\maketitle
+
+\setcounter{tocdepth}{1}
+\tableofcontents{}
+\clearpage{}
+
+\section{Default}
+\myContent
+\clearpage
+
+\begin{localTypefaceT1}{lmr}
+  \mysection{Latin Modern}
+  \myContent
+\end{localTypefaceT1}
+
+\begin{localTypefaceT1}{ppl}
+  \mysection{Palatino}
+  \myContent{}
+\end{localTypefaceT1}
+
+\begin{localTypefaceT1}{jkposn}
+  \mysection{\fontfamily{jkposn}\selectfont Johannes Kepler serif}
+  \myContent{}
+  \begin{localTypefaceT1}{jkpkosn}
+    \mysubsection{\scshape `Large' small capitals}
+    {\scshape \sampleText}
+  \end{localTypefaceT1}
+\end{localTypefaceT1}
+
+\begin{localTypefaceT1}{jkpssosn}
+  \mysection{\fontfamily{jkpssosn}\selectfont Johannes Kepler sans serif}
+  \myContent{}
+  \begin{localTypefaceT1}{jkpsskosn}
+    \mysubsection{\scshape `Large' small capitals}
+    {\scshape \sampleText}
+  \end{localTypefaceT1}
+\end{localTypefaceT1}
+
+\begin{localTypefaceT1}{jkpttosn}
+  \mysection{\fontfamily{jkpttosn}\selectfont Johannes Kepler monospaced}
+  \myContent{}
+\end{localTypefaceT1}
+
+\begin{localTypefaceT1}{put}
+  \mysection{Utopia (PSNFSS)}
+  \myContent
+\end{localTypefaceT1}
+
+\begin{localTypefaceT1}{futs}
+  \mysection{Utopia (Fourier, poorman)}
+  \myContent
+\end{localTypefaceT1}
+
+\begin{localTypefaceT1}{phv}
+  \mysection{Helvetica}
+  \myContent
+\end{localTypefaceT1}
+
+\begin{localTypefaceT1}{pag}
+  \mysection{Avant Garde}
+  \myContent
+\end{localTypefaceT1}
+
+\begin{localTypefaceOT}{Tex Gyre Adventor}
+  \mysection{Tex Gyre Adventor (OpenType)}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Tex Gyre Bonum}
+  \mysection{Tex Gyre Bonum (OpenType)}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Tex Gyre Chorus}
+  \mysection{Tex Gyre Chorus (OpenType)}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Tex Gyre Cursor}
+  \mysection{Tex Gyre Cursor (OpenType)}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Tex Gyre Heros}
+  \mysection{Tex Gyre Heros (OpenType)}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceT1}{qpl}
+  \mysection{Tex Gyre Pagella (Type 1)}
+  \myContent
+\end{localTypefaceT1}
+
+\begin{localTypefaceOT}{Tex Gyre Pagella}
+  \mysection{Tex Gyre Pagella (OpenType)}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Tex Gyre Schola}
+  \mysection{Tex Gyre Schola (OpenType)}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Tex Gyre Termes}
+  \mysection{Tex Gyre Termes (OpenType)}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Linux Libertine O}
+  \mysection{Linux Libertine}
+  \myContent{}
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Libertinus Serif}
+  \mysection{Libertinus}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{GFS Artemisia}
+  \mysection{GFS Artemisia}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{GFS Bodoni}
+  \mysection{GFS Bodoni}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Libre Bodoni}
+  \mysection{Libre Bodoni}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{GFS Didot}
+  \mysection{GFS Didot}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{GFS Neohellenic}
+  \mysection{GFS Neohellenic}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Venturis ADF}
+  \mysection{Venturis ADF}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Venturis ADF No2}
+  \mysection{Venturis ADF No2}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Venturis Old ADF}
+  \mysection{Venturis Old ADF}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Venturis Sans ADF}
+  \mysection{Venturis Sans ADF}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Cardo}
+  \mysection{Cardo}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Minion Pro}
+  \mysection{Minion Pro}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Crimson}
+  \mysection{Crimson}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Cochineal}
+  \mysection{Cochineal}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{fbb}
+  \mysection{fbb}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{ETBembo RomanOSF}
+  \mysection{ET Book}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Alegreya}
+  \setmainfont{Alegreya}[ Numbers = {Proportional,OldStyle},
+  UprightFont    = *-Regular ,
+  ItalicFont     = *-Italic ,
+  BoldFont       = *-Bold , 
+  BoldItalicFont = *-Bold Italic ,
+  UprightFeatures = { SmallCapsFont = AlegreyaSC-Regular },
+  BoldFeatures = { SmallCapsFont= AlegreyaSC-Bold },
+  ItalicFeatures = { SmallCapsFont= AlegreyaSC-Italic },
+  BoldItalicFeatures = {  SmallCapsFont= AlegreyaSC-Bold Italic }]
+  \mysection{Alegreya}
+  \myContent{}
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Alegreya Sans}
+  \mysection{Alegreya Sans}
+  \myContent{}
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Accanthis ADF Std No3}
+  \mysection{Accanthis}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceT1}{Baskervaldx-OsF}
+  \mysection{Baskervald X}
+  \myContent
+\end{localTypefaceT1}
+
+\begin{localTypefaceOT}{BaskervilleF}
+  \mysection{BaskervilleF}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Libre Baskerville}
+  \mysection{Libre Baskerville}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Libre Caslon Text}
+  \mysection{Libre Caslon}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Caladea}
+  \mysection{Caladea}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Coelacanth}
+  \mysection{Coelacanth}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Cormorant Garamond}
+  \mysection{Cormorand Garamond}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{EB Garamond}
+  \mysection{EB Garamond}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceT1}{zgmj}
+  \mysection{URW Garamond No.8 Expert}
+  \myContent
+\end{localTypefaceT1}
+
+\begin{localTypefaceOT}{DejaVu Sans}
+  \mysection{DejaVu Sans}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{DejaVu Serif}
+  \mysection{DejaVu Serif}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Erewhon}
+  \mysection{Erewhon}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Heuristica}
+  \mysection{Heuristica}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Fira Sans}
+  \mysection{Fira Sans}
+  \myContent
+\end{localTypefaceOT}
+
+% \begin{localTypefaceOT}{Gandhi Serif}
+%   \mysection{Gandhi Serif}
+%   \myContent
+% \end{localTypefaceOT}
+
+\begin{localTypefaceOT}{gentium}
+  \mysection{Gentium (Type 1)}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Gentium}
+  \mysection{Gentium (OpenType)}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Fira Mono}
+  \mysection{Fira Mono}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{InconsolataN}
+  \mysection{Inconsolata}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Kurier}
+  \mysection{Kurier}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Iwona}
+  \mysection{Iwona}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Quattrocento}
+  \mysection{Quattrocento}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Quattrocento Sans}
+  \mysection{Quattrocento Sans}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Raleway}
+  \mysection{Raleway}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Roboto}
+  \mysection{Roboto}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{XITS}
+  \mysection{XITS}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Stix}
+  \mysection{Stix}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{XCharter}
+  \mysection{XCharter}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Spectral}
+  \mysection{Spectral}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Vollkorn}
+  \mysection{Vollkorn}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Antykwa Poltawskiego}
+  \mysection{Antykwa Poltawskiego}
+  \myContent
+\end{localTypefaceOT}
+
+\begin{localTypefaceOT}{Antykwa Torunska}
+  \mysection{Antykwa Torunska}
+  \myContent
+\end{localTypefaceOT}
+
+
+
+\appendix{}
+
+% \begin{localTypefaceOT}{Latin Modern Roman}
+{ \setmainfont{Latin Modern Roman}
+  \setmathfont[version=lm]{Latin Modern Math}
+  \mathversion{lm}
+  \section{Latin Modern, Latin Modern Math}
+  \mathContent}
+% \end{localTypefaceOT}
+
+% \begin{localTypefaceOT}{XITS}
+{
+  \setmainfont{XITS}
+  \setmathfont{XITS Math}
+  \section{XITS}
+  \mathContent
+}
+% \end{localTypefaceOT}
+
+{
+  \setmainfont{STIX}
+  \setmathfont{STIX Math}
+  \section{STIX}
+  \mathContent
+}
+
+{
+  \setmainfont{STIX Two Text}
+  \setmathfont{STIX Two Math}
+  \section{STIX Two}
+  \mathContent
+}
+
+
+% \begin{localTypefaceOT}{TeX Gyre Termes}
+{
+  \setmainfont{TeX Gyre Termes}
+  \setmathfont[version=termes]{TeX Gyre Termes Math}
+  \mathversion{termes}
+  \section{Termes, Termes Math}
+  \mathContent
+}
+% \end{localTypefaceOT}
+
+{
+  \setmainfont{TeX Gyre Bonum}
+  \setmathfont[version=bonum]{TeX Gyre Bonum Math}
+  \mathversion{bonum}
+  \section{Bonum, Bonum Math}
+  \mathContent
+}
+
+{
+  \setmainfont{TeX Gyre Schola}
+  \setmathfont[version=schola]{TeX Gyre Schola Math}
+  \mathversion{bonum}
+  \section{Schola, Schola Math}
+  \mathContent
+}
+
+% \begin{localTypefaceOT}{Palatino nova}
+{ \setmainfont{Latin Modern Roman}
+  \setmathfont[version=asana]{Asana Math}
+  \mathversion{asana}
+  \section{Latin Modern, Asana Math}
+  \mathContent}
+% \end{localTypefaceOT}
+
+% \begin{localTypefaceOT}{TeX Gyre Pagella}
+{
+  \setmainfont{TeX Gyre Pagella}
+  \setmathfont[version=pagella]{TeX Gyre Pagella Math}
+  \mathversion{pagella}
+  \section{Pagella, Pagella Math}
+  \mathContent
+}
+% \end{localTypefaceOT}
+
+{
+  \setmainfont{Neo Euler}
+  \setmathfont[version=euler]{Neo Euler}
+  \section{Neo Euler}
+  \mathContent
+}
+
+% \begin{localTypefaceOT}{Cambria}
+%   \setmathfont[version=cambria]{Cambria Math}
+%   \mathversion{cambria}
+%   \section{Cambria, Cambria Math}
+%   \mathContent
+% \end{localTypefaceOT}
+
+{
+  \setmainfont{DejaVu Serif}
+  \setmathfont[version=dejavu]{TeX Gyre DejaVu Math}
+  \mathversion{dejavu}
+  \section{DejaVu Serif, DejaVu Math}
+  \mathContent
+}
+
+{
+  \setmainfont{Libertinus Serif}
+  \setmathfont[version=libertinus]{Libertinus Math}
+  \mathversion{libertinus}
+  \section{Libertinus, Libertinus Math}
+  \mathContent
+}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% TeX-engine: luatex
+%%% End:
+
+%% Resources
+
+% See blindtext package for dummy text
+
+% Font family names
+% http://cs.brown.edu/about/system/managed/latex/doc/psnfss2e.pdf
+% https://tex.stackexchange.com/questions/23592/berry-naming-scheme-list-of-latex-font-families
+% https://tex.stackexchange.com/questions/118969/quickest-way-to-search-for-valid-fontfamily-arguments
+% http://texdoc.net/texmf-dist/doc/fonts/fontname/fontname.pdf
+
+% Change math alphabet locally:
+% https://tex.stackexchange.com/questions/99596/different-font-family-in-math-mode
+% https://tex.stackexchange.com/questions/14570/change-math-font-only-in-some-parts-of-a-document
+% https://tex.stackexchange.com/questions/30049/how-to-select-math-font-in-document
+% kpfonts: https://tex.stackexchange.com/questions/94761/whats-the-internal-font-name-of-the-kp-fonts
+% 
+% Math fonts
+% http://milde.users.sourceforge.net/LUCR/Math/math-font-selection.xhtml
+% https://www.tug.org/TUGboat/tb31-2/tb98robertson.pdf
+% 
+% font selection
+% http://www.cs.put.poznan.pl/csobaniec/software/latex/fonts.html
