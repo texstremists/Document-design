@@ -22,6 +22,9 @@ This repository generally covers typesetting questions and includes LaTeX relate
 
 - [multicolumn-TOC](https://github.com/texstremists/Document-design/blob/master/Beamer/multicolumnTOC.tex): multiple columns in the table of contents
 
+- [solarized](https://github.com/texstremists/Document-design/blob/master/Beamer/beamercolorthemesolarizeddark.sty) and [zenburn](https://github.com/texstremists/Document-design/blob/master/Beamer/beamercolorthemezenburn.sty): dark beamer colour themes.
 
 
 ## Typefaces
+
+- [fontastic](https://github.com/texstremists/Document-design/blob/master/typefaces/fontastic.tex) and [sans-serif-math](https://github.com/texstremists/Document-design/blob/master/typefaces/sans-serif-math.tex): showcases of typefaces available to LaTeX.
