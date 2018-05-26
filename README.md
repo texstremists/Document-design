@@ -11,8 +11,8 @@ This repository generally covers typesetting questions and includes LaTeX relate
 ## LaTeX
 
 - [label-print](https://github.com/texstremists/Document-design/tree/master/Latex/labelPrint): a template for printing neat labels with custom size
-
 - [algorithm-examples](https://github.com/texstremists/Document-design/blob/master/Latex/algorithmExamples.tex): examples to use algorithms in Latex
+- [template-Spi-Manuscript](https://github.com/texstremists/Document-design/blob/master/Latex/template-Spi-Manuscript/): a thesis template featuring the new **SPI cover** 
 
 
 
