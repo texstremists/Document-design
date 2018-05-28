@@ -5,14 +5,14 @@
 [![GitHub license](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/texstremists/Document-design/blob/master/LICENSE)
 
 This repository generally covers typesetting questions and includes LaTeX related topics.
-
+Start your visit with our [wiki](https://github.com/texstremists/Document-design/wiki) for tips, references and explanations of every file here.
 
 
 ## LaTeX
 
 - [label-print](https://github.com/texstremists/Document-design/tree/master/Latex/labelPrint): a template for printing neat labels with custom size
 
-- [algorithm-examples](https://github.com/texstremists/Document-design/blob/master/Latex/algorithmExamples.tex): examples to use algorithms in Latex
+- [algorithm-examples](https://github.com/texstremists/Document-design/blob/master/Latex/algorithmExamples.tex): examples of algorithm typesetting in LaTeX
 
 
 
