@@ -1,0 +1,28 @@
+\documentclass[11pt,a4paper,twoside,openright]{book}
+\providecommand{\main}{.} % file management for Main File.
+
+
+\input{\main/Preambule} % preambule file input.
+\input{\main/Funct_TemplateECN} % figure management file input.
+\input{\main/Input_TemplateECN}
+
+\begin{document}
+
+\AddToShipoutPicture*{\BackgroundTPage}
+\thispagestyle{empty}
+~~\\
+\ClearShipoutPicture
+\newpage
+%%%
+
+
+Partie Manuscrit
+\newpage
+
+
+%%%
+\AddToShipoutPicture*{\BackgroundBPage}
+\thispagestyle{empty}
+~~\\
+\ClearShipoutPicture
+\end{document}

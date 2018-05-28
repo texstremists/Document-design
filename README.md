@@ -11,9 +11,8 @@ Start your visit with our [wiki](https://github.com/texstremists/Document-design
 ## LaTeX
 
 - [label-print](https://github.com/texstremists/Document-design/tree/master/Latex/labelPrint): a template for printing neat labels with custom size
-
 - [algorithm-examples](https://github.com/texstremists/Document-design/blob/master/Latex/algorithmExamples.tex): examples of algorithm typesetting in LaTeX
-
+- [template-Spi-Manuscript](https://github.com/texstremists/Document-design/blob/master/Latex/template-Spi-Manuscript/): a thesis template featuring the new **SPI cover** 
 
 
 

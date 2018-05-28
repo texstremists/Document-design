@@ -1,0 +1,493 @@
+\definecolor{ecn_Blue}{RGB}{49,132,155} % color definition
+\definecolor{spi_Blue}{RGB}{159,182,217}
+
+\pgfdeclareimage[width = 0.17\paperwidth]{logocn}{../TemplateFiles/logocn-rvb} % Logo ECN-rvb
+\pgfdeclareimage[width = 0.30\paperwidth]{logospi}{../TemplateFiles/logospi} % Logo UBL-Spi
+\pgfdeclareimage[width = \paperwidth]{FondOne}{../TemplateFiles/FondSpiBlue} % Backgroud UBL-Spi
+\pgfdeclareimage[width = 0.9\paperwidth]{FondTop}{../TemplateFiles/TriangleBlueTop} % Blue Triangle on top
+\pgfdeclareimage[width = 0.9\paperwidth]{FondBottom}{../TemplateFiles/TriangleBlueBottom} % Blue Triangle on bottom
+\pgfdeclareimage[width = 0.9\paperwidth]{Line}{../TemplateFiles/LineBlue} % Blue Line
+
+% command definition for title page elements
+\newcommand{\MySpeciality}[1]{\def\MySpeciality{#1}} % thesis speciality
+\newcommand{\MyAuthor}[1]{\def\MyAuthor{#1}} % author
+\newcommand{\MyPlace}[1]{\def\MyPlace{#1}} % place of presentation
+\newcommand{\MyDate}[1]{\def\MyDate{#1}} % date of presentation
+\newcommand{\MyTitle}[1]{\def\MyTitle{#1}} % thesis title
+\newcommand{\MySubTitle}[1]{\def\MySubTitle{#1}} % thesis subtitle
+\newcommand{\MyInstitute}[1]{\def\MyInstitute{#1}} % institute
+
+% Second part, definition for 4 jury members 
+\newcommand{\rappOne}[2]{\def\rappOneNom{#1}\def\rappOneFonct{#2}} 
+\newcommand{\rappTwo}[2]{\def\rappTwoNom{#1}\def\rappTwoFonct{#2}}
+
+\newcommand{\presid}[2]{\def\presidNom{#1}\def\presidFonct{#2}}
+
+\newcommand{\juryOne}[2]{\def\juryOneNom{#1}\def\juryOneFonct{#2}}
+\newcommand{\juryTwo}[2]{\def\juryTwoNom{#1}\def\juryTwoFonct{#2}}
+\newcommand{\juryThree}[2]{\def\juryThreeNom{#1}\def\juryThreeFonct{#2}}
+\newcommand{\juryFourth}[2]{\def\juryFourthNom{#1}\def\juryFourthFonct{#2}}
+
+\newcommand{\direcThese}[2]{\def\direcTheseNom{#1}\def\direcTheseFonct{#2}}
+\newcommand{\codirecThese}[2]{\def\codirecTheseNom{#1}\def\codirecTheseFonct{#2}}
+\newcommand{\coencadThese}[2]{\def\coencadTheseNom{#1}\def\coencadTheseFonct{#2}}
+
+\newcommand{\inviteOne}[2]{\def\inviteOneNom{#1}\def\inviteOneFonct{#2}}
+\newcommand{\inviteTwo}[2]{\def\inviteTwoNom{#1}\def\inviteTwoFonct{#2}}
+
+% command definition for back page elements
+\newcommand{\MyCompTitleFr}[1]{\def\MyCompTitleFr{#1}}
+\newcommand{\MyCompTitleEn}[1]{\def\MyCompTitleEn{#1}}
+
+\newcommand{\MyKeyFr}[1]{\def\MyKeyFr{#1}}
+\newcommand{\MyKeyEn}[1]{\def\MyKeyEn{#1}}
+
+\newcommand{\MyResumFr}[1]{\def\MyResumFr{#1}}
+\newcommand{\MyResumEn}[1]{\def\MyResumEn{#1}}
+
+\newcommand\BackgroundTPage{%
+\begin{tikzpicture}[remember picture,overlay]
+		 \node[anchor=east] 
+		 at ([yshift=5mm,xshift=20mm]current page.north east) (ecnlogo)
+		 {\parbox[t]{.19\paperwidth}{\pgfuseimage{logocn}}};
+		 %
+		 \node[anchor=west] 
+		 at ([yshift=5mm,xshift=35mm]current page.north west) (spilogo)
+		 {\parbox[t]{.19\paperwidth}{\pgfuseimage{logospi}}};
+		 %
+		 \node[anchor=north west] 
+		 at ([yshift=-30mm,xshift=-11mm]spilogo.south west) (fondone)
+		 {\parbox[t]{\paperwidth}{\pgfuseimage{FondOne}}};
+		 %
+		 \node[anchor=south west] 
+		 at ([yshift=-33mm,xshift=0mm]spilogo.south west) (these)
+		 {\parbox[t]{.5\paperwidth}{{\huge{{\fontfamily{phv}\selectfont T}}}%
+		 {\LARGE{{\fontfamily{phv}\selectfont HESE DE DOCTORAT DE}}}}};	
+		 %
+		 \node[anchor=south west] 
+		 at ([yshift=-33mm,xshift=0mm]these.south west) (ecn)
+		 {\parbox[t]{.5\paperwidth}{{\Large{{\fontfamily{phv}\selectfont L'ÉCOLE CENTRALE DE NANTES}}}}};	
+		 %
+		 \node[anchor=south west] 
+		 at ([yshift=-6mm,xshift=0mm]ecn.south west) (ubl)
+		 {\parbox[t]{.5\paperwidth}{{\Large{{\fontfamily{phv}\selectfont C}}}%
+		 {\large{{\fontfamily{phv}\selectfont OMUE}}} {\Large{{\fontfamily{phv}\selectfont U}}}%
+		 {\large{{\fontfamily{phv}\selectfont NIVERSITÉ}}} {\Large{{\fontfamily{phv}\selectfont B}}}%
+		 {\large{{\fontfamily{phv}\selectfont RETAGNE}}} {\Large{{\fontfamily{phv}\selectfont L}}}%
+		 {\large{{\fontfamily{phv}\selectfont OIRE}}}}};
+		 %
+		 \node[anchor=south west] 
+		 at ([yshift=-13mm,xshift=0mm]ubl.south west) (ed)
+		 {\parbox[t]{.5\paperwidth}{{\large{{\fontfamily{phv}\selectfont É}}}%
+		 {\normalsize{{\fontfamily{phv}\selectfont COLE}}} {\large{{\fontfamily{phv}\selectfont D}}}%
+		 {\normalsize{{\fontfamily{phv}\selectfont OCTORALE N\up{o} 602}}}}};
+		 %
+		 \node[anchor=south west] 
+		 at ([yshift=-6mm,xshift=0mm]ed.south west) (spi)
+		 {\parbox[t]{.5\paperwidth}%
+		 {{\normalsize{{\fontfamily{phv}\selectfont \textit{Sciences pour l'Ingénieur}}}}}};
+		 %
+		 \node[anchor=south west] 
+		 at ([yshift=-6mm,xshift=0mm]spi.south west) (spec)
+		 {\parbox[t]{.8\paperwidth}%
+		 {{\normalsize{{\fontfamily{phv}\selectfont \textit{Spécialité : \MySpeciality}}}}}};
+		 %
+		 \node[anchor=south west] 
+		 at ([yshift=+6mm,xshift=20mm]fondone.south west) (institute)
+		 {\parbox[t]{.8\paperwidth}%
+		 {{\normalsize{{\fontfamily{phv}\selectfont \textbf{Unité de recherche : \MyInstitute}}}}}};
+		 %		 	 
+		 \node[anchor=south west] 
+		 at ([yshift=4mm,xshift=0mm]institute.south west) (placedate)
+		 {\parbox[t]{.8\paperwidth}%
+		 {{\normalsize{{\fontfamily{phv}\selectfont \textbf{Thèse présentée et soutenue à \MyPlace, le \MyDate}}}}}};
+		 %		
+		 \node[anchor=south west] 
+		 at ([yshift=13mm,xshift=0mm]placedate.south west) (thesesubtitle)
+		 {\parbox[t]{.8\paperwidth}%
+		 {{\large{{\fontfamily{phv}\selectfont \MySubTitle}}}}};
+		 %	
+		 \node[anchor=south west] 
+		 at ([yshift=6mm,xshift=0mm]thesesubtitle.south west) (thesetitle)
+		 {\parbox[t]{.8\paperwidth}%
+		 {{\Large{{\fontfamily{phv}\selectfont \textbf{\MyTitle}}}}}};
+		 %
+		 \node[anchor=south west] 
+		 at ([yshift=9mm,xshift=0mm]thesetitle.south west) (author)
+		 {\parbox[t]{.8\paperwidth}%
+		 {{\LARGE{{\fontfamily{phv}\selectfont \textbf{\MyAuthor}}}}}};
+		 %	
+		 \node[anchor=south west] 
+		 at ([yshift=6mm,xshift=-2mm]author.south west) (par)
+		 {\parbox[t]{.5\paperwidth}%
+		 {{\large{{\fontfamily{phv}\selectfont Par}}}}};
+
+		 % Second Part of template
+		 %
+		 % Rapporteurs
+		 \node[anchor=north east] 
+		 at ([yshift=4mm,xshift=-2mm]fondone.south) (rapporter)
+		 {\parbox[t]{.42\paperwidth}%
+		 {{\normalsize{{\begin{center}
+		 \fontfamily{phv}\selectfont \textbf{Rapporteurs avant Soutenance}
+		 \end{center}}}}}};
+		 %
+		 \node[anchor=north west] 
+		 at ([yshift=6mm,xshift=0mm]rapporter.south west) (rapOneName)
+		 {\parbox[t]{.15\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \rappOneNom}}
+		 \end{flushleft}}}}}};
+		 \node[anchor=north east] 
+		 at ([yshift=6mm,xshift=0mm]rapporter.south east) (rapOneFunction)
+		 {\parbox[t]{.25\paperwidth}%
+		 {{\normalsize{{\begin{flushright}
+		 \small{{\fontfamily{phv}\selectfont \rappOneFonct}}
+		 \end{flushright}}}}}};
+		 %
+		 \node[anchor=north west] 
+		 at ([yshift=8mm,xshift=0mm]rapOneName.south west) (rapTwoName)
+		 {\parbox[t]{.15\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \rappTwoNom}}
+		 \end{flushleft}}}}}};
+		 \node[anchor=north east] 
+		 at ([yshift=8mm,xshift=0mm]rapOneFunction.south east) (rapTwoFunction)
+		 {\parbox[t]{.25\paperwidth}%
+		 {{\normalsize{{\begin{flushright}
+		 \small{{\fontfamily{phv}\selectfont \rappTwoFonct}}
+		 \end{flushright}}}}}};
+		 %
+		 % Jury
+		 %
+		 \node[anchor=north west] 
+		 at ([yshift=4mm,xshift=2mm]fondone.south) (jury)
+		 {\parbox[t]{.42\paperwidth}%
+		 {{\normalsize{{\begin{center}
+		 \fontfamily{phv}\selectfont \textbf{Composition du Jury}
+		 \end{center}}}}}};
+		 %
+		 \node[anchor=north west] 
+		 at ([yshift=6mm,xshift=0mm]jury.south west) (presidTitle)
+		 {\parbox[t]{.42\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \textbf{Président}}}
+		 \end{flushleft}}}}}};
+		 \node[anchor=north west] 
+		 at ([yshift=8mm,xshift=0mm]presidTitle.south west) (presidName)
+		 {\parbox[t]{.15\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \presidNom}}
+		 \end{flushleft}}}}}};
+		 \node[anchor=north east] 
+		 at ([yshift=8mm,xshift=0mm]presidTitle.south east) (presidFunction)
+		 {\parbox[t]{.25\paperwidth}%
+		 {{\normalsize{{\begin{flushright}
+		 \small{{\fontfamily{phv}\selectfont \presidFonct}}
+		 \end{flushright}}}}}};
+		 %
+		 \node[anchor=north west] 
+		 at ([yshift=6mm,xshift=0mm]presidName.south west) (juryOneName)
+		 {\parbox[t]{.15\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \juryOneNom}}
+		 \end{flushleft}}}}}};
+		 \node[anchor=north east] 
+		 at ([yshift=6mm,xshift=0mm]presidFunction.south east) (juryOneFunction)
+		 {\parbox[t]{.25\paperwidth}%
+		 {{\normalsize{{\begin{flushright}
+		 \small{{\fontfamily{phv}\selectfont \juryOneFonct}}
+		 \end{flushright}}}}}};
+		 %
+		 \node[anchor=north west] 
+		 at ([yshift=8mm,xshift=0mm]juryOneName.south west) (juryTwoName)
+		 {\parbox[t]{.15\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \juryTwoNom}}
+		 \end{flushleft}}}}}};
+		 \node[anchor=north east] 
+		 at ([yshift=8mm,xshift=0mm]juryOneFunction.south east) (juryTwoFunction)
+		 {\parbox[t]{.25\paperwidth}%
+		 {{\normalsize{{\begin{flushright}
+		 \small{{\fontfamily{phv}\selectfont \juryTwoFonct}}
+		 \end{flushright}}}}}};
+		 %
+		 \node[anchor=north west] 
+		 at ([yshift=8mm,xshift=0mm]juryTwoName.south west) (juryThreeName)
+		 {\parbox[t]{.15\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \juryTwoNom}}
+		 \end{flushleft}}}}}};
+		 \node[anchor=north east] 
+		 at ([yshift=8mm,xshift=0mm]juryTwoFunction.south east) (juryThreeFunction)
+		 {\parbox[t]{.25\paperwidth}%
+		 {{\normalsize{{\begin{flushright}
+		 \small{{\fontfamily{phv}\selectfont \juryTwoFonct}}
+		 \end{flushright}}}}}};
+		 %
+		 \node[anchor=north west] 
+		 at ([yshift=8mm,xshift=0mm]juryThreeName.south west) (juryFourthName)
+		 {\parbox[t]{.15\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \juryTwoNom}}
+		 \end{flushleft}}}}}};
+		 \node[anchor=north east] 
+		 at ([yshift=8mm,xshift=0mm]juryThreeFunction.south east) (juryFourthFunction)
+		 {\parbox[t]{.25\paperwidth}%
+		 {{\normalsize{{\begin{flushright}
+		 \small{{\fontfamily{phv}\selectfont \juryTwoFonct}}
+		 \end{flushright}}}}}};
+		 %
+		 % Encadrements
+		 %
+		 \node[anchor=north west] 
+		 at ([yshift=6mm,xshift=0mm]juryFourthName.south west) (directorTitle)
+		 {\parbox[t]{.42\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \textbf{Directeur de Thèse}}}
+		 \end{flushleft}}}}}};
+		 \node[anchor=north west] 
+		 at ([yshift=8mm,xshift=0mm]directorTitle.south west) (directorName)
+		 {\parbox[t]{.15\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \direcTheseNom}}
+		 \end{flushleft}}}}}};
+		 \node[anchor=north east] 
+		 at ([yshift=8mm,xshift=0mm]directorTitle.south east) (directorFunction)
+		 {\parbox[t]{.25\paperwidth}%
+		 {{\normalsize{{\begin{flushright}
+		 \small{{\fontfamily{phv}\selectfont \direcTheseFonct}}
+		 \end{flushright}}}}}};
+		 %	
+		 
+		 %
+		 \if\relax\coencadTheseNom\\
+		 \node[anchor=north west] 
+		 at ([yshift=6mm,xshift=0mm]directorName.south west) (codirectorTitle)
+		 {\parbox[t]{.42\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \textbf{Co-directeur de Thèse}}}
+		 \end{flushleft}}}}}};
+		 %
+		 \node[anchor=north west] 
+		 at ([yshift=8mm,xshift=0mm]codirectorTitle.south west) (codirectorName)
+		 {\parbox[t]{.15\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \codirecTheseNom}}
+		 \end{flushleft}}}}}};
+		 \node[anchor=north east] 
+		 at ([yshift=8mm,xshift=0mm]codirectorTitle.south east) (codirectorFunction)
+		 {\parbox[t]{.25\paperwidth}%
+		 {{\normalsize{{\begin{flushright}
+		 \small{{\fontfamily{phv}\selectfont \codirecTheseFonct}}
+		 \end{flushright}}}}}};
+		 %
+		 \if\relax\inviteOneNom
+		 \else
+		 \if\relax\inviteTwoNom\\
+		 \node[anchor=north west] 
+		 at ([yshift=6mm,xshift=0mm]codirectorName.south west) (InvitTitle)
+		 {\parbox[t]{.42\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \textbf{Invité}}}
+		 \end{flushleft}}}}}};
+		 \else
+		 \node[anchor=north west] 
+		 at ([yshift=6mm,xshift=0mm]codirectorName.south west) (InvitTitle)
+		 {\parbox[t]{.42\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \textbf{Invités}}}
+		 \end{flushleft}}}}}};
+		 \fi
+		 \fi
+		 %
+		 \else
+		 \if\relax\codirecTheseNom\\
+		 \node[anchor=north west] 
+		 at ([yshift=6mm,xshift=0mm]directorName.south west) (codirectorTitle)
+		 {\parbox[t]{.42\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \textbf{Co-encadrant de Thèse}}}
+		 \end{flushleft}}}}}};
+		 %
+		 \node[anchor=north west] 
+		 at ([yshift=8mm,xshift=0mm]codirectorTitle.south west) (coencadName)
+		 {\parbox[t]{.15\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \coencadTheseNom}}
+		 \end{flushleft}}}}}};
+		 \node[anchor=north east] 
+		 at ([yshift=8mm,xshift=0mm]codirectorTitle.south east) (coencadFunction)
+		 {\parbox[t]{.25\paperwidth}%
+		 {{\normalsize{{\begin{flushright}
+		 \small{{\fontfamily{phv}\selectfont \coencadTheseFonct}}
+		 \end{flushright}}}}}};
+		 %
+		 \if\relax\inviteOneNom
+		 \else
+		 \if\relax\inviteTwoNom\\
+		 \node[anchor=north west] 
+		 at ([yshift=6mm,xshift=0mm]coencadName.south west) (InvitTitle)
+		 {\parbox[t]{.42\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \textbf{Invité}}}
+		 \end{flushleft}}}}}};
+		 \else
+		 \node[anchor=north west] 
+		 at ([yshift=6mm,xshift=0mm]coencadName.south west) (InvitTitle)
+		 {\parbox[t]{.42\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \textbf{Invités}}}
+		 \end{flushleft}}}}}};
+		 \fi
+		 \fi
+		 %
+		 \else
+		 \node[anchor=north west] 
+		 at ([yshift=6mm,xshift=0mm]directorName.south west) (codirectorTitle)
+		 {\parbox[t]{.42\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \textbf{Co-encadrants de Thèse}}}
+		 \end{flushleft}}}}}};
+		 %
+		 \node[anchor=north west] 
+		 at ([yshift=8mm,xshift=0mm]codirectorTitle.south west) (codirectorName)
+		 {\parbox[t]{.15\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \codirecTheseNom}}
+		 \end{flushleft}}}}}};
+		 \node[anchor=north east] 
+		 at ([yshift=8mm,xshift=0mm]codirectorTitle.south east) (codirectorFunction)
+		 {\parbox[t]{.25\paperwidth}%
+		 {{\normalsize{{\begin{flushright}
+		 \small{{\fontfamily{phv}\selectfont \codirecTheseFonct}}
+		 \end{flushright}}}}}};
+		 %
+		 \node[anchor=north west] 
+		 at ([yshift=8mm,xshift=0mm]codirectorName.south west) (coencadName)
+		 {\parbox[t]{.15\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \coencadTheseNom}}
+		 \end{flushleft}}}}}};
+		 \node[anchor=north east] 
+		 at ([yshift=8mm,xshift=0mm]codirectorFunction.south east) (coencadFunction)
+		 {\parbox[t]{.25\paperwidth}%
+		 {{\normalsize{{\begin{flushright}
+		 \small{{\fontfamily{phv}\selectfont \coencadTheseFonct}}
+		 \end{flushright}}}}}};
+		 %
+		 \if\relax\inviteOneNom
+		 \else
+		 \if\relax\inviteTwoNom\\
+		 \node[anchor=north west] 
+		 at ([yshift=6mm,xshift=0mm]coencadName.south west) (InvitTitle)
+		 {\parbox[t]{.42\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \textbf{Invité}}}
+		 \end{flushleft}}}}}};
+		 \else
+		 \node[anchor=north west] 
+		 at ([yshift=6mm,xshift=0mm]coencadName.south west) (InvitTitle)
+		 {\parbox[t]{.42\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \textbf{Invités}}}
+		 \end{flushleft}}}}}};
+		 \fi
+		 \fi
+		 %
+		 \fi
+		 \fi
+
+		 % Invités
+		 %
+		 \if\relax \inviteOneNom
+		 \else
+		 \node[anchor=north west] 
+		 at ([yshift=8mm,xshift=0mm]InvitTitle.south west) (inviteOneNom)
+		 {\parbox[t]{.15\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \inviteOneNom}}
+		 \end{flushleft}}}}}};
+		 \node[anchor=north east] 
+		 at ([yshift=8mm,xshift=0mm]InvitTitle.south east) (inviteOneFunction)
+		 {\parbox[t]{.25\paperwidth}%
+		 {{\normalsize{{\begin{flushright}
+		 \small{{\fontfamily{phv}\selectfont \inviteOneFonct}}
+		 \end{flushright}}}}}};
+		 \fi
+		 %
+		 \if\relax \inviteTwoNom
+		 \else
+		 \node[anchor=north west] 
+		 at ([yshift=8mm,xshift=0mm]inviteOneNom.south west) (inviteTwoNom)
+		 {\parbox[t]{.15\paperwidth}%
+		 {{\normalsize{{\begin{flushleft}
+		 \small{{\fontfamily{phv}\selectfont \inviteOneNom}}
+		 \end{flushleft}}}}}};
+		 \node[anchor=north east] 
+		 at ([yshift=8mm,xshift=0mm]inviteOneFunction.south east) (inviteTwoFunction)
+		 {\parbox[t]{.25\paperwidth}%
+		 {{\normalsize{{\begin{flushright}
+		 \small{{\fontfamily{phv}\selectfont \inviteOneFonct}}
+		 \end{flushright}}}}}};
+		 \fi			 
+		 \end{tikzpicture}		
+}
+
+\newcommand\BackgroundBPage{%
+\begin{tikzpicture}[remember picture,overlay]
+		 \node[anchor=north] 
+		 at ([yshift=26.5mm,xshift=26mm]current page.north) (fondone)
+		 {\parbox[t]{\paperwidth}{\pgfuseimage{FondTop}}};	
+		 %
+		 \node[anchor=south east] 
+		 at ([yshift=14mm,xshift=47mm]current page.south east) (fondtwo)
+		 {\parbox[t]{\paperwidth}{\pgfuseimage{FondBottom}}};	
+		 %
+		 \node[anchor=east] 
+		 at ([yshift=5mm,xshift=20mm]current page.north east) (ecn)
+		 {\parbox[t]{.19\paperwidth}{\pgfuseimage{logocn}}};
+		%
+		\node[anchor=west] 
+		 at ([yshift=5mm,xshift=35mm]current page.north west) (spi)
+		 {\parbox[t]{.19\paperwidth}{\pgfuseimage{logospi}}};
+		%
+		\node[anchor=north west] 
+		 at ([yshift=-8mm,xshift=0mm]spi.south west) (LineOne)
+		 {\parbox[t]{.19\paperwidth}{\pgfuseimage{Line}}};
+		%
+		\node[anchor=north west] 
+		 at ([yshift=-4mm,xshift=0mm]LineOne.south west) (TitleFrench)
+		 {\parbox[t]{0.8\paperwidth}{{\fontfamily{phv}\selectfont {\color{spi_Blue}{\textbf{Titre :}}} \MyCompTitleFr}}};
+		%
+		\node[anchor=north west] 
+		 at ([yshift=-1mm,xshift=0mm]TitleFrench.south west) (KeywordFrench)
+		 {\parbox[t]{0.8\paperwidth}{{\fontfamily{phv}\selectfont \textbf{Mots Clés :} \MyKeyFr}}};
+		%
+		\node[anchor=north west] 
+		 at ([yshift=-1mm,xshift=0mm]KeywordFrench.south west) (AbstractFrench)
+		 {\parbox[t]{0.9\paperwidth}{
+		 \begin{multicols}{2}
+		{\fontfamily{phv}\selectfont \textbf{Résumé :} \MyResumFr}
+\end{multicols}}};
+		%		
+		\node[anchor=north west] 
+		 at ([yshift=-120mm,xshift=0mm]LineOne.south west) (LineTwo)
+		 {\parbox[t]{.19\paperwidth}{\pgfuseimage{Line}}};
+		%
+		\node[anchor=north west] 
+		 at ([yshift=-4mm,xshift=0mm]LineTwo.south west) (TitleEnglish)
+		 {\parbox[t]{0.8\paperwidth}{{\fontfamily{phv}\selectfont {\color{spi_Blue}{\textbf{Title :}}} \MyCompTitleEn}}};
+		%
+		\node[anchor=north west] 
+		 at ([yshift=-1mm,xshift=0mm]TitleEnglish.south west) (KeywordEnglish)
+		 {\parbox[t]{0.8\paperwidth}{{\fontfamily{phv}\selectfont \textbf{Keywords :} \MyKeyEn}}};
+		%
+		\node[anchor=north west] 
+		 at ([yshift=-1mm,xshift=0mm]KeywordEnglish.south west) (AbstractEnglish)
+		 {\parbox[t]{0.9\paperwidth}{
+		 \begin{multicols}{2}
+		{\fontfamily{phv}\selectfont \textbf{Abstract :} \MyResumEn}
+\end{multicols}}};
+\end{tikzpicture}		
+}
