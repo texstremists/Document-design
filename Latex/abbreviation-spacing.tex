@@ -1,0 +1,62 @@
+\documentclass[%
+varwidth=16.5cm,% to avoid linebreaks
+border=5pt% to avoid tight cropping
+]{standalone}
+
+\usepackage[british]{babel} % replace 'british' with 'francais' and see the difference
+\usepackage[x11names]{xcolor} % to highlight bad typesetting
+
+% Semi-automated solution
+\makeatletter
+\newcommand{\abbr}[1]{#1\@ifnextchar.{}{.\@}} % abbreviation macro constructor
+\makeatother
+%Omit final dot from each definition
+\newcommand{\myetal}{\abbr{et al}}
+\newcommand{\myas}{\abbr{a.s}}
+\newcommand{\myae}{\abbr{a.e}}
+\newcommand{\myNb}{\abbr{N.b}}
+\newcommand{\myeg}{\abbr{e.g}}
+\newcommand{\myetc}{\abbr{etc}}
+
+% Automated solution (but xspace is not entirely robust)
+\usepackage{xspace}
+\makeatletter
+\newcommand{\abbrx}[1]{#1\@ifnextchar.{}{.\@\xspace}}
+\makeatother
+\newcommand{\abbrxetal}{\abbrx{et al}}
+\newcommand{\abbrxas}{\abbrx{a.s}}
+\newcommand{\abbrxae}{\abbrx{a.e}}
+\newcommand{\abbrxNb}{\abbrx{N.b}}
+\newcommand{\abbrxeg}{\abbrx{e.g}}
+\newcommand{\abbrxetc}{\abbrx{etc}}
+
+
+\begin{document}
+
+% Bad typesetting
+{\color{Firebrick3}%
+  We use FEM. This is a new sentence.%
+}
+
+% Good typesetting
+We use FEM\@. This is a new sentence.
+
+% Bad typesetting
+{\color{Firebrick3}%
+  R. Allan et al. proved $f$ to be a.s. continuous a.e. N.b. this is a new sentence with abbreviations, e.g. etc.%
+}
+
+% Good typesetting; manual
+R. Allan et al.\@ proved $f$ to be a.s.\@ continuous a.e. N.b.\@ this is a new sentence with abbreviations, e.g.\@ etc.
+
+% Good typesetting; mostly automated
+R. Allan \myetal{} proved $f$ to be \myas{} continuous \myae. \myNb{} this is a new sentence with abbreviations, \myeg{} \myetc. 
+
+% Good typesetting; automated
+R. Allan \abbrxetal proved $f$ to be \abbrxas continuous \abbrxae. \abbrxNb this is a new sentence with abbreviations, \abbrxeg \abbrxetc.
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
