@@ -1,0 +1,114 @@
+\documentclass{article}
+
+% Standard packages
+\usepackage{csquotes}
+\usepackage[british]{babel}
+
+% Typefaces
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[upright,notext,sfmath]{kpfonts} % changes math font
+
+% Set sans serif default
+\renewcommand{\familydefault}{\sfdefault}
+
+% Colours
+\usepackage[x11names]{xcolor}
+\colorlet{lmcolour}{OrangeRed4}
+\colorlet{kpcolour}{SpringGreen4}
+
+% Check and cross marks
+\usepackage{pifont}
+
+\begin{document}
+
+Let us say you want to your document to be typeset with sans serif typefaces. You choose Latin Modern as your text typeface and kpfonts as your math typeface. Below are shown the available fonts, for reference.
+
+\smallskip{}
+
+{\sffamily\color{lmcolour}
+  Latin Modern Sans Serif:
+  f\textsubscript{min}=7 if and \emph{only} if i\textsubscript{spe}=3.
+}
+
+{\rmfamily\color{lmcolour}
+  Latin Modern Serif:
+  f\textsubscript{min}=7 if and \emph{only} if i\textsubscript{spe}=3.
+}
+
+\smallskip{}
+
+{\fontfamily{jkposn}\selectfont\color{kpcolour}
+ kpfonts Serif: 
+ f\textsubscript{min}=7 if and \emph{only} if i\textsubscript{spe}=3.
+}
+
+{\fontfamily{jkposn}\selectfont\mathversion{rm}\color{kpcolour}
+  kpfonts Serif with math:
+  \(f_{min}=7\) if and \emph{only} if \(i_{spe}=3\).
+}
+
+{\fontfamily{jkpssosn}\selectfont\color{kpcolour}
+  kpfonts Sans Serif:
+  f\textsubscript{min}=7 if and \emph{only} if i\textsubscript{spe}=3.
+}
+
+{\fontfamily{jkpssosn}\selectfont\mathversion{sf}\color{kpcolour}
+  kpfonts Sans Serif with math:
+  \(f_{min}=7\) if and \emph{only} if \(i_{spe}=3\).
+}
+
+\medskip{}
+
+Let us consider the text \enquote{if and only if}.
+
+\color{kpcolour}
+
+\[\text{\color{black}\ding{55}}\qquad
+  f_{min}=7\quad if~and~\emph{\color{lmcolour}only}~if \quad i_{spe}=3.
+\]
+
+
+\[\text{\color{black}\ding{55}}\qquad
+  f_{min}=7\quad \mathrm{if~and~\emph{\color{lmcolour}only}~if} \quad i_{spe}=3.
+\]
+
+\[\text{\color{black}\ding{55}}\qquad
+  f_{min}=7\quad \textrm{\color{lmcolour}if~and~\emph{only}~if} \quad i_{spe}=3.
+\]
+
+
+\[\text{\color{black}\ding{51}}\qquad
+  f_{min}=7\quad \text{\color{lmcolour}if and \emph{only} if} \quad i_{spe}=3.
+\]
+
+\smallskip{}
+
+\textcolor{black}{Let us consider the text subscripts.}
+
+\[\text{\color{black}\ding{55}}\qquad
+  f_{\mathrm{min}}=7\quad \text{\color{lmcolour}if and \emph{only} if} \quad i_{\mathrm{spe}}=3.
+\]
+
+\[\text{\color{black}\ding{55}}\qquad
+  f_{\textrm{\color{lmcolour}min}}=7\quad \text{\color{lmcolour}if and \emph{only} if} \quad i_{\textrm{\color{lmcolour}spe}}=3.
+\]
+
+\[\text{\color{black}\ding{55}}\qquad
+  f_{\text{\color{lmcolour}min}}=7\quad \text{\color{lmcolour}if and \emph{only} if} \quad i_{\text{\color{lmcolour}spe}}=3.
+\]
+
+\[\text{\color{black}\ding{51}}\qquad
+  f_{\mathsf{min}}=7\quad \text{\color{lmcolour}if and \emph{only} if} \quad i_{\mathsf{spe}}=3.
+\]
+
+\[\text{\color{black}\ding{51}}\qquad
+  f_{\mathup{min}}=7\quad \text{\color{lmcolour}if and \emph{only} if} \quad i_{\mathup{spe}}=3.
+\]
+
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

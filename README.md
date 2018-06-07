@@ -29,3 +29,4 @@ Start your visit with our [wiki](https://github.com/texstremists/Document-design
 ## Typefaces
 
 - [fontastic](https://github.com/texstremists/Document-design/blob/master/typefaces/fontastic.tex) and [sans-serif-math](https://github.com/texstremists/Document-design/blob/master/typefaces/sans-serif-math.tex): showcases of typefaces available to LaTeX.
+- [text-in-math](https://github.com/texstremists/Document-design/blob/master/typefaces/text-in-math.tex): example on how (not) to typeset text in math mode; see [wiki](https://github.com/texstremists/Document-design/wiki/Typesetting-math#typeface) for explanations.
