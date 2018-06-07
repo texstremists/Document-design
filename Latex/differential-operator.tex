@@ -1,0 +1,50 @@
+\documentclass{beamer}
+\usepackage{amsopn} % Provides \DeclareMathOperator and \operatorname. amsmath loads it
+
+% Shape-dependent definitions
+% N.b. \mathup provides shape-independent formatting,
+% but is not always available.
+\newcommand{\diffA}{\mathop{}\!\mathrm{d}}
+\newcommand{\diffB}{\mathop{}\!\mathsf{d}}
+
+% Shape-independent definitions
+\newcommand{\diffC}{\operatorname{d}\!} % thin space follows
+\DeclareMathOperator{\diffD}{d} % normal operator spacing
+
+% Uncomment the following to set math font to serif
+% \usefonttheme{serif}
+
+\begin{document}
+
+\begin{frame}
+% Basic (bad) way
+\[
+  \int_{c}^{d}\frac{df(x)}{dx} dx
+\]
+
+% Thin spacing, works only in serif context
+\[
+  \int_{c}^{d}\frac{\diffA f(x)}{\diffA x} \diffA x
+\]
+
+% Thin spacing, works only in sans serif context
+\[
+  \int_{c}^{d}\frac{\diffB f(x)}{\diffB x} \diffB x
+\]
+
+% Thin spacing
+\[
+  \int_{c}^{d}\frac{\diffC f(x)}{\diffC x} \diffC x
+\]
+
+% Operator spacing
+\[
+  \int_{c}^{d}\frac{\diffD f(x)}{\diffD x} \diffD x
+\]
+\end{frame}
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
