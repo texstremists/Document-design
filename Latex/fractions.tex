@@ -1,0 +1,42 @@
+% Explanation on fraction typesetting in text. See wiki.
+\documentclass[%
+varwidth=9cm,% to avoid linebreaks
+border=5pt% to avoid tight cropping
+]{standalone}
+
+\usepackage{xfrac}% provides \sfrac
+
+% Create some marker to see interline spacing
+\usepackage{xcolor}
+\newcommand{\lineSeparation}{{\color{lightgray}\hrule}}
+
+% Sentence template
+\newcommand{\exampleInstance}[1]{%
+  The inline fraction \(#1\) and the exponent fraction \(x^{#1}\).%
+}
+
+\begin{document}
+
+\lineSeparation{}
+
+\exampleInstance{\frac{a}{b}}
+
+\lineSeparation{}
+
+\exampleInstance{a/b}
+
+\lineSeparation{}
+
+\exampleInstance{ab^{-1}}
+
+\lineSeparation{}
+
+\exampleInstance{\sfrac{a}{b}}
+
+\lineSeparation{}
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
