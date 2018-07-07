@@ -1,0 +1,119 @@
+% ********************************************************************
+% beamercolorthemezenburn.sty
+% Rob Moss, 2011
+%
+% This package provides the "zenburn" colour theme for Beamer.
+% This is a low-contrast theme, originally developed for Vim:
+%
+% http://slinky.imukuppi.org/zenburnpage/
+%
+% 1.0 2011/02/06
+%   Initial version of the colour theme.
+%
+% ********************************************************************
+
+\NeedsTeXFormat{LaTeX2e}
+\def \filename {beamercolorthemezenburn.sty}
+\def \filedate {2011/02/06}
+\def \fileversion {1.0}
+\ProvidesPackage{beamercolorthemezenburn}[\filedate\space\fileversion\space
+    Beamer "zenburn" colour theme]
+\typeout{Package: `beamercolorthemezenburn' \fileversion\space <\filedate>}
+
+% ********************************************************************
+% Presentation mode
+% ********************************************************************
+
+\mode<presentation>
+
+% ********************************************************************
+% Colour palette
+% ********************************************************************
+
+\definecolor{background}{RGB}{63,63,63}  % #3f3f3f
+\definecolor{background2}{RGB}{79,79,79} % #4f4f4f
+\definecolor{background3}{RGB}{95,95,95} % #5f5f5f
+\definecolor{normtext}{RGB}{220,220,204} % #dcdccc
+\definecolor{green}{RGB}{143,178,143}    % #8fb28f
+\definecolor{orange}{RGB}{223,175,143}   % #dfaf8f
+\definecolor{yellow}{RGB}{240,223,175}   % #f0dfaf
+\definecolor{red}{RGB}{204,147,147}      % #cc9393
+\definecolor{blue}{RGB}{140,208,211}     % #8cd0d3
+
+% ********************************************************************
+% Beamer colours
+% ********************************************************************
+
+\setbeamercolor{normal text}{fg=normtext,bg=background}
+\setbeamercolor{section in toc}{fg=orange,bg=background}
+\setbeamercolor{subsection in toc}{fg=yellow,bg=background}
+\setbeamercolor{alerted text}{fg=red,bg=background3}
+\setbeamercolor{block title}{fg=yellow,bg=background3}
+\setbeamercolor{block body}{fg=yellow,bg=background3}
+\setbeamercolor{block title alerted}{fg=red,bg=background3}
+\setbeamercolor{block body alerted}{fg=red,bg=background3}
+\setbeamercolor{block title example}{fg=green,bg=background3}
+\setbeamercolor{block body example}{fg=green,bg=background3}
+\setbeamercolor{example text}{fg=green}
+\setbeamercolor{structure}{fg=yellow}
+
+\setbeamercolor{author}{fg=orange}
+\setbeamercolor{institute}{fg=orange}
+\setbeamercolor{date}{fg=yellow}
+\setbeamercolor{framesubtitle}{fg=orange}
+
+\setbeamercolor*{palette primary}{fg=yellow,bg=background}
+\setbeamercolor*{palette secondary}{fg=green,bg=background}
+\setbeamercolor*{palette tertiary}{fg=orange,bg=background}
+\setbeamercolor*{palette quaternary}{fg=red,bg=background}
+
+\setbeamercolor*{sidebar}{fg=normtext,bg=background3}
+
+\setbeamercolor*{item}{fg=green}
+
+\setbeamercolor*{palette sidebar primary}{fg=yellow,bg=background3}
+\setbeamercolor*{palette sidebar secondary}{fg=green,bg=background3}
+\setbeamercolor*{palette sidebar tertiary}{fg=orange,bg=background3}
+\setbeamercolor*{palette sidebar quaternary}{fg=red,bg=background3}
+
+\setbeamercolor{titlelike}{parent=pallette primary,fg=green}
+\setbeamercolor{frametitle}{fg=red,bg=background2}
+\setbeamercolor{frametitle right}{fg=red,bg=background2}
+
+% Leave the separation lines unaltered.
+%\setbeamercolor*{separation line}{}
+%\setbeamercolor*{fine separation line}{}
+
+% ********************************************************************
+% Commands for changing colours
+% ********************************************************************
+
+\newcommand{\zenburnshowinfolines}{%
+    \setbeamercolor*{palette primary}{fg=yellow,bg=background}
+    \setbeamercolor*{palette secondary}{fg=green,bg=background}
+    \setbeamercolor*{palette tertiary}{fg=orange,bg=background}}
+
+\newcommand{\zenburnchalkmodeoff}{%
+    \setbeamercolor*{frametitle}{}
+    \setbeamercolor*{normal text}{}
+    \setbeamercolor{normal text}{fg=normtext,bg=background}
+    \setbeamercolor{frametitle}{fg=red,bg=background2}}
+
+\ifdefined\rgmbeamershowinfolines
+    \renewcommand{\rgmbeamershowinfolines}{\zenburnshowinfolines}
+\else
+    \newcommand{\rgmbeamershowinfolines}{\zenburnshowinfolines}
+\fi
+
+\ifdefined\rgmbeamerchalkmodeoff
+    \renewcommand{\rgmbeamerchalkmodeoff}{\zenburnchalkmodeoff}
+\else
+    \newcommand{\rgmbeamerchalkmodeoff}{\zenburnchalkmodeoff}
+\fi
+
+% ********************************************************************
+% Other modes
+% ********************************************************************
+
+\mode
+<all>

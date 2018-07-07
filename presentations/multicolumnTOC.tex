@@ -1,0 +1,88 @@
+\documentclass{beamer}
+
+\usepackage{multicol} % using for the toc to typeset in two columns, see http://tex.stackexchange.com/questions/26929/two-column-beamer-toc-with-control-over-the-breaking-point
+\usepackage{blindtext}
+
+\begin{document}
+   
+   \begin{frame}
+      \frametitle{Topics}
+      \begin{multicols}{2}
+         \tableofcontents
+      \end{multicols}
+   \end{frame}
+   
+   
+   
+   \section{Dummy1}
+   
+   \subsection{subDummy11}
+   
+   \begin{frame}
+      \frametitle{\insertsection\ -- \insertsubsection}
+      \blindtext
+   \end{frame}
+   
+   \subsection{subDummy12}
+   
+   \begin{frame}
+      \frametitle{\insertsection\ -- \insertsubsection}
+      \blindtext
+   \end{frame}
+   
+   \subsection{subDummy13}
+   
+   \begin{frame}
+      \frametitle{\insertsection\ -- \insertsubsection}
+      \blindtext
+   \end{frame}
+   
+   \section{Dummy2}
+   
+   \begin{frame}
+      \frametitle{\insertsection}
+      \blindtext
+   \end{frame}
+   
+   \section{Dummy3}
+   
+   \subsection{subDummy31}
+   
+   \begin{frame}
+      \frametitle{\insertsection\ -- \insertsubsection}
+      \blindtext
+   \end{frame}
+
+   \subsection{subDummy32}
+   
+   \begin{frame}
+      \frametitle{\insertsection\ -- \insertsubsection}
+      \blindtext
+   \end{frame}
+   
+   % In the body of the document *after* which you want to put the manual separation:
+   \addtocontents{toc}{\newpage} % manually add a breakpoint in the toc
+   
+   \section{Dummy4}
+   
+   \begin{frame}
+      \frametitle{\insertsection}
+      \blindtext
+   \end{frame}
+   
+   \section{Dummy5}
+   
+   \begin{frame}
+      \frametitle{\insertsection}
+      \blindtext
+   \end{frame}
+   
+   \section{Dummy6}
+   
+   \begin{frame}
+      \frametitle{\insertsection}
+      \blindtext
+   \end{frame}
+ 
+   
+\end{document}

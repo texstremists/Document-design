@@ -1,0 +1,35 @@
+% Template for printing labels
+% 
+% Do not forget to print it in 1:1.
+% 
+% Sources:
+%  https://tex.stackexchange.com/a/2327/119426
+%  http://latex.org/forum/viewtopic.php?t=1525
+%  https://tex.stackexchange.com/questions/89588/positioning-relative-to-page-in-tikz
+
+
+\RequirePackage{fix-cm} % arbitrary sized Computer Modern font
+
+\documentclass{article}
+
+\usepackage{tikz} % for drawing the frame
+\usepackage[paperheight=3cm,paperwidth=7.5cm,left=0.5cm,right=0.5cm,top=0.5cm,bottom=0.5cm]{geometry} % adjust the paper size 
+
+
+\begin{document}
+   
+   % Create label centered both horizontally and vertically
+   \topskip0pt % no extra vectical space at the top of the page
+   \vspace*{\fill}
+   \fontsize{30}{0} % adjust it for longer/shorter/multiline names
+   \selectfont \centering Your label
+   \vspace*{\fill}
+   
+   % Draw the border around the name for easy cutting
+   \begin{tikzpicture}[overlay,remember picture]
+      \draw [line width=1pt, %rounded corners=7pt % for rounded frames
+      ]
+         (current page.north west) rectangle (current page.south east);
+   \end{tikzpicture}
+
+\end{document}

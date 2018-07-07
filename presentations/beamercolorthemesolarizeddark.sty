@@ -1,0 +1,124 @@
+% ********************************************************************
+% beamercolorthemezenburn.sty
+% Rob Moss, 2011
+%
+% This package provides the "solarized" colour theme for Beamer.
+% This is a low-contrast theme, originally developed for Vim:
+%
+% http://ethanschoonover.com/solarized/
+%
+% 1.0 2021/01/17
+%   Initial version of the colour theme (dark version).
+%
+% ********************************************************************
+
+\NeedsTeXFormat{LaTeX2e}
+\def \filename {beamercolorthemesolarizeddark.sty}
+\def \filedate {2012/01/17}
+\def \fileversion {1.0}
+\ProvidesPackage{beamercolorthemesolarizeddark}[
+  \filedate\space\fileversion\space
+  Beamer "solarizeddark" colour theme]
+\typeout{Package: `beamercolorthemesolarizeddark' \fileversion\space
+  <\filedate>}
+
+% ********************************************************************
+% Presentation mode
+% ********************************************************************
+
+\mode<presentation>
+
+% ********************************************************************
+% Colour palette
+% ********************************************************************
+
+\definecolor{background}{RGB}{0,43,54}      % #002b36
+\definecolor{background2}{RGB}{7,54,66}     % #073642
+\definecolor{background3}{RGB}{7,54,66}     % #073642
+\definecolor{normtext}{RGB}{138,141,150}    % #839496
+\definecolor{green}{RGB}{133,153,0}         % #859900
+\definecolor{orange}{RGB}{203,75,22}        % #cb4b16
+\definecolor{yellow}{RGB}{181,137,0}        % #b58900
+\definecolor{red}{RGB}{220,50,47}           % #dc322f
+\definecolor{blue}{RGB}{38,139,210}         % #268bd2
+\definecolor{magenta}{RGB}{211,54,130}      % #d33682
+\definecolor{violet}{RGB}{108,113,196}      % #6c71c4
+\definecolor{cyan}{RGB}{42,161,152}         % #2aa198
+
+% ********************************************************************
+% Beamer colours
+% ********************************************************************
+
+\setbeamercolor{normal text}{fg=normtext,bg=background}
+\setbeamercolor{section in toc}{fg=orange,bg=background}
+\setbeamercolor{subsection in toc}{fg=yellow,bg=background}
+\setbeamercolor{alerted text}{fg=red,bg=background3}
+\setbeamercolor{block title}{fg=yellow,bg=background3}
+\setbeamercolor{block body}{fg=yellow,bg=background3}
+\setbeamercolor{block title alerted}{fg=orange,bg=background3}
+\setbeamercolor{block body alerted}{fg=orange,bg=background3}
+\setbeamercolor{block title example}{fg=green,bg=background3}
+\setbeamercolor{block body example}{fg=green,bg=background3}
+\setbeamercolor{example text}{fg=green}
+\setbeamercolor{structure}{fg=yellow}
+
+\setbeamercolor{author}{fg=orange}
+\setbeamercolor{institute}{fg=orange}
+\setbeamercolor{date}{fg=green}
+\setbeamercolor{framesubtitle}{fg=violet}
+
+\setbeamercolor*{palette primary}{fg=yellow,bg=background}
+\setbeamercolor*{palette secondary}{fg=blue,bg=background}
+\setbeamercolor*{palette tertiary}{fg=orange,bg=background}
+\setbeamercolor*{palette quaternary}{fg=green,bg=background}
+
+\setbeamercolor*{sidebar}{fg=normtext,bg=background3}
+
+\setbeamercolor*{item}{fg=green}
+
+\setbeamercolor*{palette sidebar primary}{fg=yellow,bg=background3}
+\setbeamercolor*{palette sidebar secondary}{fg=blue,bg=background3}
+\setbeamercolor*{palette sidebar tertiary}{fg=orange,bg=background3}
+\setbeamercolor*{palette sidebar quaternary}{fg=green,bg=background3}
+
+\setbeamercolor{titlelike}{parent=pallette primary,fg=green}
+\setbeamercolor{frametitle}{fg=blue,bg=background2}
+\setbeamercolor{frametitle right}{fg=blue,bg=background2}
+
+% Leave the separation lines unaltered.
+%\setbeamercolor*{separation line}{}
+%\setbeamercolor*{fine separation line}{}
+
+% ********************************************************************
+% Commands for changing colours
+% ********************************************************************
+
+\newcommand{\solarizeddarkshowinfolines}{%
+    \setbeamercolor*{palette primary}{fg=yellow,bg=background}
+    \setbeamercolor*{palette secondary}{fg=blue,bg=background}
+    \setbeamercolor*{palette tertiary}{fg=orange,bg=background}}
+
+\newcommand{\solarizeddarkchalkmodeoff}{%
+    \setbeamercolor*{frametitle}{}
+    \setbeamercolor*{normal text}{}
+    \setbeamercolor{normal text}{fg=normtext,bg=background}
+    \setbeamercolor{frametitle}{fg=blue,bg=background2}}
+
+\ifdefined\rgmbeamershowinfolines
+    \renewcommand{\rgmbeamershowinfolines}{\solarizeddarkshowinfolines}
+\else
+    \newcommand{\rgmbeamershowinfolines}{\solarizeddarkshowinfolines}
+\fi
+
+\ifdefined\rgmbeamerchalkmodeoff
+    \renewcommand{\rgmbeamerchalkmodeoff}{\solarizeddarkchalkmodeoff}
+\else
+    \newcommand{\rgmbeamerchalkmodeoff}{\solarizeddarkchalkmodeoff}
+\fi
+
+% ********************************************************************
+% Other modes
+% ********************************************************************
+
+\mode
+<all>
