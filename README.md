@@ -10,19 +10,19 @@ Start your visit with our [wiki](https://github.com/texstremists/Document-design
 
 ## LaTeX
 
-- [label-print](https://github.com/texstremists/Document-design/tree/master/Latex/labelPrint): a template for printing neat labels with custom size
-- [algorithm-examples](https://github.com/texstremists/Document-design/blob/master/Latex/algorithmExamples.tex): examples of algorithm typesetting in LaTeX
-- [template-Spi-Manuscript](https://github.com/texstremists/Document-design/blob/master/Latex/template-Spi-Manuscript/): a thesis template featuring the new **SPI cover** 
-- [differential-operator](https://github.com/texstremists/Document-design/blob/master/Latex/differential-operator.tex): example on how (not) to typeset the differential operator; see [wiki](https://github.com/texstremists/Document-design/wiki/Typesetting-math#differential-operator-definition) for explanations.
+- [label-print](https://github.com/texstremists/Document-design/tree/master/unsorted/labelPrint): a template for printing neat labels with custom size
+- [algorithm-examples](https://github.com/texstremists/Document-design/blob/master/unsorted/algorithmExamples.tex): examples of algorithm typesetting in LaTeX
+- [template-Spi-Manuscript](https://github.com/texstremists/Document-design/blob/master/unsorted/template-Spi-Manuscript/): a thesis template featuring the new **SPI cover** 
+- [differential-operator](https://github.com/texstremists/Document-design/blob/master/unsorted/differential-operator.tex): example on how (not) to typeset the differential operator; see [wiki](https://github.com/texstremists/Document-design/wiki/Typesetting-math#differential-operator-definition) for explanations.
 
 
 ## Beamer
 
-- [beamer-clock](https://github.com/texstremists/Document-design/blob/master/Beamer/beamer-clock/beamerClock.md): a command for frame numbers clock-like display
+- [beamer-clock](https://github.com/texstremists/Document-design/blob/master/presentations/beamer-clock/beamerClock.md): a command for frame numbers clock-like display
 
-- [multicolumn-TOC](https://github.com/texstremists/Document-design/blob/master/Beamer/multicolumnTOC.tex): multiple columns in the table of contents
+- [multicolumn-TOC](https://github.com/texstremists/Document-design/blob/master/presentations/multicolumnTOC.tex): multiple columns in the table of contents
 
-- [solarized](https://github.com/texstremists/Document-design/blob/master/Beamer/beamercolorthemesolarizeddark.sty) and [zenburn](https://github.com/texstremists/Document-design/blob/master/Beamer/beamercolorthemezenburn.sty): dark beamer colour themes.
+- [solarized](https://github.com/texstremists/Document-design/blob/master/presentations/beamercolorthemesolarizeddark.sty) and [zenburn](https://github.com/texstremists/Document-design/blob/master/presentations/beamercolorthemezenburn.sty): dark beamer colour themes.
 
 
 
