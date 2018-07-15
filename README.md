@@ -8,7 +8,7 @@ This repository generally covers typesetting questions and includes LaTeX relate
 Start your visit with our [wiki](https://github.com/texstremists/Document-design/wiki) for tips, references and explanations of every file here.
 
 
-## LaTeX
+## Unsorted
 
 - [label-print](https://github.com/texstremists/Document-design/tree/master/unsorted/labelPrint): a template for printing neat labels with custom size
 - [algorithm-examples](https://github.com/texstremists/Document-design/blob/master/unsorted/algorithmExamples.tex): examples of algorithm typesetting in LaTeX
@@ -16,7 +16,7 @@ Start your visit with our [wiki](https://github.com/texstremists/Document-design
 - [differential-operator](https://github.com/texstremists/Document-design/blob/master/unsorted/differential-operator.tex): example on how (not) to typeset the differential operator; see [wiki](https://github.com/texstremists/Document-design/wiki/Typesetting-math#differential-operator-definition) for explanations.
 
 
-## Beamer
+## Presentations
 
 - [beamer-clock](https://github.com/texstremists/Document-design/blob/master/presentations/beamer-clock/beamerClock.md): a command for frame numbers clock-like display
 
