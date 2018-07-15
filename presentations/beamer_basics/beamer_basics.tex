@@ -1,0 +1,107 @@
+\documentclass{beamer}
+
+% Meta date for title page
+% Short versions are used for header and footer some themes (not in default one)
+\title[My short title]{My long title}
+\author[F.\,N. Surname ]{First Name Surname}
+\institute[Short affiliation]{My long affiliation}
+\date[2018-07-04]{Beamer basics, 4\textsuperscript{th} July 2018, Nantes, France}
+
+% Uncomment to see an example of a different theme
+% \usetheme{CambridgeUS}
+
+% Uncomment to see an example of a different colour theme
+% \usecolortheme{dolphin}
+
+% Themes and colour themes built in beamer (i.e. requiring no extra package) can be found at https://mpetroff.net/files/beamer-theme-matrix/
+
+\begin{document}
+
+\maketitle{}
+
+\begin{frame}{Outline}
+  \tableofcontents{}
+\end{frame}
+
+\section{How to present text}
+
+\subsection{Text formatting}
+
+\begin{frame}{Frame title}{Frame subtitle}
+  Besides \emph{emphase}, you can use colour \alert{accent}.
+\end{frame}
+
+\subsection{Text disposition}
+
+\begin{frame}{Default blocks}
+  
+  \begin{block}{1\textsuperscript{st} block}
+    \texttt{block} environment.
+  \end{block}
+  
+  \begin{exampleblock}{2\textsuperscript{nd} block}
+    \texttt{exampleblock} environment.
+  \end{exampleblock}
+  
+  \begin{alertblock}{3\textsuperscript{rd} block}
+    \texttt{alertblock} environment.
+  \end{alertblock}
+  
+\end{frame}
+
+\begin{frame}{Lists and columns}
+  \begin{columns}[T, % horizontally align the Top of each column
+    onlytextwidth] % columns must span only the text area (i.e. do not change the margins)
+    \column{0.33\textwidth} % width of this column (here, about a third of the width of the text area)
+    Items
+    \begin{itemize}
+    \item Milk
+    \item Eggs
+    \item Potatoes
+    \end{itemize}
+
+    \column{0.33\textwidth}
+    Enumerations
+    \begin{enumerate}
+    \item First,
+    \item Second and
+    \item Last.
+    \end{enumerate}
+
+    \column{0.33\textwidth}
+    Descriptions
+    \begin{description}
+    \item[PowerPoint] Meeh.
+    \item[Beamer] Yeeeha.
+    \end{description}
+  \end{columns}
+\end{frame}
+
+
+\section{How to animate}
+
+\begin{frame}{Overlays}
+  \begin{itemize}
+  \item<-2> This will disappear
+  \item<2-> This will \alert<5->{stay}
+  \item<3> This is very brief
+  \item<3-4> This is somewhat less brief
+  \item<2,4> This comes and goes
+  \end{itemize}
+  \onslide<5->{Overlays are very versatile.}
+  \onslide<6->{This is only the basic use.}
+\end{frame}
+
+\section{How to conclude}
+
+\begin{frame}[noframenumbering] % This one is ignored in the frame count
+  \centering{}\Huge
+  The End
+\end{frame}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

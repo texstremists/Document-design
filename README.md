@@ -16,13 +16,15 @@ Start your visit with our [wiki](https://github.com/texstremists/Document-design
 - [differential-operator](https://github.com/texstremists/Document-design/blob/master/unsorted/differential-operator.tex): example on how (not) to typeset the differential operator; see [wiki](https://github.com/texstremists/Document-design/wiki/Typesetting-math#differential-operator-definition) for explanations.
 
 
-## Presentations
+## Presentation
 
 - [beamer-clock](https://github.com/texstremists/Document-design/blob/master/presentations/beamer-clock/beamerClock.md): a command for frame numbers clock-like display
 
 - [multicolumn-TOC](https://github.com/texstremists/Document-design/blob/master/presentations/multicolumnTOC.tex): multiple columns in the table of contents
 
 - [solarized](https://github.com/texstremists/Document-design/blob/master/presentations/beamercolorthemesolarizeddark.sty) and [zenburn](https://github.com/texstremists/Document-design/blob/master/presentations/beamercolorthemezenburn.sty): dark beamer colour themes.
+
+- [beamer_basics](https://github.com/texstremists/Document-design/blob/master/presentations/beamer_basics/beamer_basics.tex): minimalist example of a beamer presentation, for beginners.
 
 
 
