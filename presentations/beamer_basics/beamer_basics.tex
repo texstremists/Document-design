@@ -1,17 +1,18 @@
 \documentclass{beamer}
 
-% Meta date for title page
-% Short versions are used for header and footer some themes (not in default one)
-\title[My short title]{My long title}
+% Meta data for title page
+\title[My short title]{My title}
 \author[F.\,N. Surname ]{First Name Surname}
-\institute[Short affiliation]{My long affiliation}
+\institute[Short affiliation]{My affiliation}
 \date[2018-07-04]{Beamer basics, 4\textsuperscript{th} July 2018, Nantes, France}
+% Short versions (between square brackets) are used by some themes for header and footer; not the default one, though.
 
-% Uncomment to see an example of a different theme
-% \usetheme{CambridgeUS}
+% The default theme is minimalist.
+% Uncomment the next line to see an example of a different theme
+% \usetheme{Frankfurt}
 
-% Uncomment to see an example of a different colour theme
-% \usecolortheme{dolphin}
+% Uncomment the next line to see an example of a different colour theme
+% \usecolortheme{albatross}
 
 % Themes and colour themes built in beamer (i.e. requiring no extra package) can be found at https://mpetroff.net/files/beamer-theme-matrix/
 
@@ -81,12 +82,13 @@
 \section{How to animate}
 
 \begin{frame}{Overlays}
+  % Various formats for overlay specifications
   \begin{itemize}
-  \item<-2> This will disappear
-  \item<2-> This will \alert<5->{stay}
-  \item<3> This is very brief
-  \item<3-4> This is somewhat less brief
-  \item<2,4> This comes and goes
+  \item<-2> This will disappear % Span <a-b>. If a is missing, its value defaults to 1
+  \item<2-> This will \alert<5->{stay}% If b is missing, its value default to the highest one possible
+  \item<3> This is very brief % Single count
+  \item<3-4> This is somewhat less brief % Standard format <a-b>
+  \item<2,4> This comes and goes % Enumeration <a,b,c>
   \end{itemize}
   \onslide<5->{Overlays are very versatile.}
   \onslide<6->{This is only the basic use.}
