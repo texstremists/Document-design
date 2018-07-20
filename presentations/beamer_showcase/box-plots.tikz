@@ -1,0 +1,72 @@
+\begin{tikzpicture}
+  \begin{axis}
+    [
+    ytick={1,2,3},
+    yticklabels={Index 0, Index 1, Index 2},
+    ]
+    \addplot+[
+    boxplot prepared={
+      lower whisker=2.214844,
+      lower quartile=3.608312,
+      median=3.895478,
+      upper quartile=4.447298,
+      upper whisker=4.666284
+    }
+    ]
+    coordinates{
+      (0,4.832228)
+      (0,5.513942)
+      (0,6.29165)
+      (0,5.216712)
+      (0,5.677036)
+      (0,4.981995)
+      (0,5.172095)
+      (0,4.056417)
+    };
+    \addplot+[
+    boxplot prepared={
+      lower whisker=3.508799,
+      lower quartile=5.079821,
+      median=5.481519,
+      upper quartile=5.971588,
+      upper whisker=6.250831
+    },
+    ] coordinates{
+      (0,6.508115)
+      (0,6.486354)
+      (0,6.860059)
+      (0,6.620663)
+      (0,7.312391)
+      (0,7.357306)
+      (0,6.421694)
+      (0,6.479597)
+      (0,6.690945)
+      (0,6.661593)
+      (0,7.271025)
+      (0,6.396931)
+      (0,7.035161)
+      (0,7.371248)
+      (0,7.033689)
+      (0,7.002645)
+      (0,6.590617)
+      (0,7.171933)
+      (0,6.416259)
+      (0,5.552438)
+    };
+    \addplot+[
+    boxplot prepared={
+      lower whisker=2.437751,
+      lower quartile=3.334956,
+      median=4.336029,
+      upper quartile=5.068459,
+      upper whisker=5.265037
+    }
+    ]
+    coordinates{
+      (0,5.826492)
+      (0,5.819791)
+      (0,6.21436)
+      (0,4.47166)
+    };
+  \end{axis}
+\end{tikzpicture}

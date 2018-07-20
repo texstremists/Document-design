@@ -1,0 +1,490 @@
+% TODO
+% Example of a TikZ diagram with overlays
+% Fix texshade features font color set to black (issue with dark background)
+% Fix some lines in circuitikz set to black (issue with dark background)
+% More comments (which?)
+
+\RequirePackage[l2tabu,orthodox]{nag} % good practice
+
+\documentclass[aspectratio=169% adapt to your display device (e.g. 1610, 43)
+]{beamer}
+
+\usepackage[british]{babel}
+\usepackage{csquotes}
+\usepackage{microtype}
+\usepackage{lmodern} % for any symbol missing in typefaces load afterwards
+\usepackage{amsmath,amssymb} % many math-related features
+\usepackage{subcaption} % subfigures with their own captions
+\usepackage{graphicx} 
+\usepackage{pgfplots}
+\usepackage{tikzscale} % (it loads tikz)
+\usepackage{hyperref}
+\usepackage{booktabs} % for nicely formatted tables
+\usepackage{siunitx} % for units and quantities
+\usepackage{cleveref}
+\usepackage{xfrac} % for \sfrac
+\usepackage{mathtools} % for multlined environment
+\usepackage{appendixnumberbeamer} % for appendix (backup) frames
+
+\usepackage[version=3]{mhchem}   % sufficient for chemical equations
+\usepackage{chemfig}   % for 2-D molecule drawings
+\usepackage{texshade} % for nucleotide and peptide alignments
+\usepackage[siunitx]{circuitikz} % for circuit diagrams
+\usepackage{smartdiagram} % predefined organisational diagrams
+
+\renewcommand{\printatom}[1]{\ensuremath{\mathsf{#1}}} % sans serif font in chemical figures
+\usepgfplotslibrary{statistics} % for box plots
+
+% Version with biblatex
+\usepackage[style=authoryear, % try others, e.g. 'numeric' (see biblatex manual)
+url=false % no url in bibliography
+]{biblatex}
+\addbibresource{references.bib}
+% For a version without biblatex:
+% 1. comment the two previous lines,
+% 2. follow instruction on frame 'Citations', and
+% 3. follow instruction on frame 'References'.
+
+% Theme
+\usetheme[%background=dark, % uncomment to 'invert' colours
+block=fill, % see metropolis manual for this option and the following ones
+sectionpage=progressbar,
+subsectionpage=progressbar,
+progressbar=frametitle]{metropolis}
+% set progress bar width
+\makeatletter 
+\setlength{\metropolis@progressinheadfoot@linewidth}{1pt}
+\makeatother
+% Alternative colour theme
+% \usecolortheme{solarizeddark}
+
+
+% Alternative theme
+% If you uncomment the following lines, comment the whole 'Theme' block above, and every line with the comment 'metropolis-only' in the document.
+% \usetheme{CambridgeUS} % or Madrid, Frankfurt
+% \usecolortheme{dolphin} % or solarizeddark, as suggested above (but load the theme first)
+% \AtBeginSection{ % Remind progress through table of content at each section
+% \begin{frame}[noframenumbering]{Outline}
+%   \tableofcontents[currentsection]
+% \end{frame}
+% }
+% Themes and colour themes built in beamer (i.e. requiring no extra package) can be found at https://mpetroff.net/files/beamer-theme-matrix/
+
+\beamertemplatenavigationsymbolsempty % remove navigation symbols
+\setbeamercovered{transparent} % covered objects are transparent (instead of, e.g., invisible)
+
+% Typefaces (uncomment only if compiled with pdfLaTeX)
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{eulervm} % for math (comment if you prefer Latin Modern Math)
+% Uncomment only one of the following lines
+\usepackage[sfdefault,light]{FiraSans} % recommended typeface for metropolis theme. Comment if you compile with LuaLaTeX since metropolis then loads it itself (see metropolis manual).
+\usepackage{FiraMono} % monospaced font (comment to use Latin Modern Mono)
+% Suggestions of other text typefaces
+% \usepackage[math]{iwona}
+% \usepackage[math]{kurier}
+% \usepackage{libertine}\usepackage{libertinust1math}
+
+% Captions (remove labels)
+\captionsetup{labelformat=empty}
+\captionsetup[subfigure]{labelformat=empty}
+
+% siunitx setup
+\sisetup{retain-unity-mantissa=false,
+  exponent-product=\cdotp, % or \cdotp
+  binary-units=true,
+  detect-all,
+  list-final-separator={ \sffamily and } % fix to set list separator in sans serif family
+}
+% Fix for siunitx: it expects \lseries to be defined for a light-weight font
+\makeatletter
+\DeclareRobustCommand\lseries{\not@math@alphabet\mdseries\relax\fontseries{l}\selectfont}
+\makeatother
+
+% Title page data
+\title[My short title]{My long title}
+\author[F.\,N. Surname ]{First Name \textsc{Surname}}
+\institute[Short affiliation]{My long affiliation}
+\date[2018-07-05]{Beamer example, 5\textsuperscript{th} July 2018, Nantes, France}
+
+\begin{document}
+
+\maketitle{}
+
+\frame{{Outline}\tableofcontents}
+
+% \begin{frame}
+%   \frametitle{Outline}
+%   \tableofcontents{}
+% \end{frame}
+
+\section{Formatting text}
+
+\begin{frame}{Paragraphs}{Not such a useful slide}
+  Suspendisse vel felis. Ut lorem lorem, interdum eu, tincidunt sit amet, laoreet
+  vitae, arcu. Aenean faucibus pede eu ante. Praesent enim elit, rutrum at, molestie
+  non, nonummy vel, nisl. Ut lectus eros, malesuada sit amet, fermentum eu,
+  sodales cursus, magna. Donec eu purus. Quisque vehicula, urna sed ultricies
+  auctor, pede lorem egestas dui, et convallis elit erat sed nulla. Donec luctus.
+  Curabitur et nunc. 
+
+  Morbi luctus, wisi viverra faucibus pretium, nibh est placerat odio, nec commodo
+  wisi enim eget quam. Quisque libero justo, consectetuer a, feugiat vitae, porttitor
+  eu, libero. Suspendisse sed mauris vitae elit sollicitudin malesuada. Maecenas
+  ultricies eros sit amet ante. Ut venenatis velit. Maecenas sed mi eget dui varius
+  euismod. Phasellus aliquet volutpat odio. Vestibulum ante ipsum primis in
+  faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque sit amet pede
+  ac sem eleifend consectetuer. 
+\end{frame}
+
+\begin{frame}{Typography}
+  Besides \emph{emphasised} and \textbf{bold} text, you can use coloured \alert{accents}.
+\end{frame}
+
+\begin{frame}{Default blocks}
+  Three block environments are always defined by the theme.
+  
+  \begin{block}{1\textsuperscript{st} block}
+    \texttt{block} environment.
+  \end{block}
+  
+  \begin{exampleblock}{2\textsuperscript{nd} block}
+    \texttt{exampleblock} environment.
+  \end{exampleblock}
+  
+  \begin{alertblock}{3\textsuperscript{rd} block}
+    \texttt{alertblock} environment.
+  \end{alertblock}
+
+  Obviously, you can define your own.  
+\end{frame}
+
+
+\begin{frame}{Lists and columns}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.33\textwidth}
+    Items
+    \begin{itemize}
+    \item Milk
+    \item Eggs
+    \item Potatoes
+    \end{itemize}
+
+    \column{0.33\textwidth}
+    Enumerations
+    \begin{enumerate}
+    \item First,
+    \item Second and
+    \item Last.
+    \end{enumerate}
+
+    \column{0.33\textwidth}
+    Descriptions
+    \begin{description}
+    \item[PowerPoint] Meeh.
+    \item[Beamer] Yeeeha.
+    \end{description}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Some math}
+  \begin{columns}[onlytextwidth]
+    \column{.45\textwidth}
+    \begin{align}
+      \exp(\varpi) & = \sum_{x=0}^{+\infty}\frac{\varpi^{x}}{\varpi!} \\
+      \label{eq:exp-expansion}
+                   &
+                     \begin{multlined}[b]
+                       = 1 + \varpi + \frac{\varpi^{2}}{2} + \frac{\varpi^{3}}{6} \\
+                       + \frac{\varpi^{4}}{24}+ o_{0}(\varpi^{5})          
+                     \end{multlined}
+    \end{align}
+    \column{.5\textwidth}
+    The number \(e\) is transcendental yet, from \cref{eq:exp-expansion} and since \(e=\exp(1)\), we see that a reasonable approximation could be \(e\approx 2 + \sfrac{1}{2} + \sfrac{1}{6} + \sfrac{1}{24} \approx 2.7083\). Indeed, \(e\approx2.7183\).
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Citations}
+  Various types of citations\footnote{Depends on the citation style.}:
+  \cite{Knuth92}, \footcite{ConcreteMath}, \textcite{Simpson}, \footfullcite{Er01}, \parencite{greenwade93}
+  % Version without biblatex:
+  % \cite{Knuth92}, \footnote{\cite{ConcreteMath}}
+\end{frame}
+
+\section{Visual content}
+\label{sec:content}
+
+\subsection{\enquote{Floats}}
+
+\begin{frame}{Tables}
+  \centering{}
+  \begin{table}
+    \centering{}
+    \caption{Meat prices (source: Wikipedia)}
+    \begin{tabular}{llr}
+      \toprule
+      \multicolumn{2}{c}{Item} &                          \\
+      \cmidrule{1-2}
+      Animal                   & Description & Price (\$) \\
+      \midrule
+      Gnat                     & per gram    & 13.65      \\
+                               & each        & 0.01       \\
+      Gnu                      & stuff       & 92.50      \\
+      Emu                      & stuffed     & 33.33      \\
+      Armadillo                & frozen      & 8.99       \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame}{Figure with caption}
+  \centering{}
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}
+      % \draw[help lines,gray!20] (0,0) grid (6,4);
+      % \draw[semithick] (0,0) rectangle (6,4);
+      \draw[semithick,->,>=latex'] (-.5, 0) -- (6.5, 0);
+      \draw[semithick,->,>=latex'] (0, -.5) -- (0,5);
+      \draw[dashed,semithick] (0, 0.2) parabola (3.5,4) node[above,font=\footnotesize]{impossible to do} (3.5, 4);
+      \node[left] at (3,3) {Word\textsuperscript{\textregistered}};
+      \draw[semithick] (0, 1) parabola (6,3); 
+      \node at (5.2,2) {\LaTeX};
+      \node[below,font=\footnotesize] at (3,0) {document complexity and size};
+      \node[xshift=-8pt,yshift=4pt,font=\footnotesize,transform shape,rotate=90] at (0,2.2) {effort and time consumption};
+    \end{tikzpicture}
+    \caption{Scalability of \LaTeX\ and Microsoft Word\textsuperscript{\textregistered} against document size and complexity (redrawn from Marko Pinteric's original at \url{http://www.pinteric.com/miktex.html})}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Subfigures with subcaptions}
+  \centering{}
+  \begin{figure}
+    \centering{}
+    \begin{subfigure}[c]{.6\textwidth}
+      \centering{}
+      \begin{tikzpicture}
+        \draw[rounded corners] (0,0) rectangle (4,4) node at (2,2) {1\textsuperscript{st} figure};
+      \end{tikzpicture}
+      \caption{1\textsuperscript{st} subcaption}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[c]{.3\textwidth}
+      \centering{}
+      \begin{tikzpicture}
+        \draw[rounded corners] (0,0) rectangle (2,2) node at (1,1) {2\textsuperscript{nd} figure};
+      \end{tikzpicture}
+      \caption{2\textsuperscript{nd} subcaption}
+    \end{subfigure}
+    \caption{This is a caption}
+  \end{figure}
+\end{frame}
+
+\subsection{Charts and diagrams}
+
+\begin{frame}{Line plots}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      xmajorgrids,
+      ymajorgrids,
+      major grid style={dotted},
+      axis x line=bottom,
+      axis y line=left,
+      width=0.9\textwidth,
+      height=6cm,
+      mlineplot, % metropolis-only (uncomment only with metropolis theme)
+      ]
+      \addplot {sin(deg(x))};
+      \addplot+[samples=100] {sin(deg(2*x))};
+    \end{axis}
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Bar charts}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      ymajorgrids,
+      major grid style={dotted},
+      axis x line*=bottom,
+      axis y line*=left,
+      ybar,
+      area legend,
+      xlabel={Foo},
+      ylabel={Bar},
+      width=0.9\textwidth,
+      height=6cm,
+      legend style={draw=none,fill=none},
+      mbarplot, % metropolis-only (uncomment only with metropolis theme)
+      ]
+      \addplot plot coordinates {(1, 20) (2, 25) (3, 22.4) (4, 12.4)};
+      \addplot plot coordinates {(1, 18) (2, 24) (3, 23.5) (4, 13.2)};
+      \addplot plot coordinates {(1, 10) (2, 19) (3, 25) (4, 15.2)};
+      \legend{lorem, ipsum, dolor}
+    \end{axis}
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Box plots}
+  \centering{}
+  % With tikzscale package
+  \includegraphics[width=\linewidth,height=.7\paperheight]{box-plots.tikz}
+  % Basic version
+  % \input{box-plots.tikz}
+\end{frame}
+
+\begin{frame}{Organisational diagrams}
+  \begin{columns}[T]
+
+    \begin{column}{.49\textwidth}
+      \resizebox{\linewidth}{.75\paperheight}{\smartdiagram[bubble diagram]{Planning Cycle,Assess,Plan,Implement,Renew}}
+    \end{column}
+
+    \begin{column}{.49\textwidth}
+      \resizebox{\linewidth}{.75\paperheight}{\smartdiagram[priority descriptive diagram]{Assess,Plan,Implement,Renew}}
+    \end{column}
+
+  \end{columns}
+
+\end{frame}
+
+\subsection{Field-specific visualisations}
+
+\begin{frame}{Chemical Equations and Molecules}
+  \centering\small
+    \ce{Zn^2+ <=>[\ce{+ 2OH-}][\ce{+ 2H+}]
+      $\underset{\text{amphoteres Hydroxid}}{\ce{Zn(OH)2 v}}$
+      <=>C[\ce{+2OH-}][\ce{+ 2H+}]
+      $\underset{\text{Hydroxozikat}}{\cf{[Zn(OH)4]^2-}}$
+    }
+    \hfil
+    \chemfig{H-C(-[2]H)(-[6]H)-C(-[7]H)=[1]O}
+\end{frame}
+
+\begin{frame}{Life Sciences}
+  \centering{}
+  \vfill % helps to center vertically
+  \begin{texshade}{AQPpro.MSF.txt}
+    \alignment{center} % seems not to work
+    % Font colour is set to black. Make it cleverer by setting to theme foreground colour
+    \namescolor{normal text.fg}
+    \numberingcolor{normal text.fg}
+    \featurestylenamescolor{normal text.fg} % seems not to work
+    \featurenamescolor{normal text.fg} % seems not to work
+    % To reduce font size
+    % \setsize{numbering}{small}
+    % \setsize{names}{small}
+    % \setsize{residues}{small}
+    \setfont{features}{sf}{up}{md}{normalsize} % set 'features' font upright
+    \shadingmode{similar} 
+    \threshold[80]{50} 
+    \setends{1}{80..112} 
+    \hideconsensus % comment to show consensus
+    \feature{top}{1}{93..93}{fill:$\downarrow$}{first case (see text)} 
+    \feature{bottom}{1}{96..99}{brace}{second case (see text)} 
+  \end{texshade}
+\end{frame}
+
+
+\begin{frame}{Circuits and SI Units}
+  \begin{columns}
+    \begin{column}{.49\textwidth}\rmfamily
+      \begin{circuitikz}[transform shape,scale=1.2,font=\sffamily]
+        \draw (0,0) node[anchor=east] {B}  to[short, o-*] (1,0)    to[R=20<\ohm>, *-*] (1,2)
+        to[R=10<\ohm>, v=$v_x$] (3,2) -- (4,2)
+        to[ cI=$\frac{\si{\siemens}}{5} v_x$, *-*] (4,0) -- (3,0)  to[R=5<\ohm>, *-*] (3,2)
+        (3,0) -- (1,0)   (1,2) to[short, -o] (0,2) node[anchor=east]{A}
+        ;\end{circuitikz}
+    \end{column}
+    \begin{column}{.49\textwidth}
+      \begin{itemize}\rmfamily
+      \item \SI{3.45d4}{\square\volt\cubic\lumen\per\farad}
+      \item \SIlist[per-mode=symbol]{40;85;103}{\kilo\metre\per\hour}
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\section{Overlays}
+
+\begin{frame}{Simple overlays}
+  \onslide*<1-3,5>{
+    \begin{itemize}
+    \item<+-> First item;
+    \item<+-> second item;
+    \item<+-> \dots;
+    \item<5-> last item.
+    \end{itemize}
+  }
+  \onslide*<4>{
+    \centering{}
+    \begin{tikzpicture}
+      \path[fill=white,draw=cyan] (2,2) circle (2) node at (2,2) {\color{blue} Awesome picture} ;
+    \end{tikzpicture}
+  }
+\end{frame}
+
+\begin{frame}{Intricate overlays}
+  \begin{enumerate}
+  \item<+-> This is\onslide*<2->{ \alert<5->{\textbf<4->{\emph<3->{really}}}} important
+  \item<+-> This \temporal<.(1)>{will change}{is changing}{has changed}
+  \item<+> This item will be covered again
+  \onslide*<1-+>{\item<.-> This item will be removed}
+  \item<.-> \onslide+<.-+>{This text will become invisible}
+  \end{enumerate}
+  This demonstration is \alt<.(1)-.(2)>{over}{going on}. \pause The end.
+\end{frame}
+
+\begin{frame}{Clever overlays}
+  \centering
+  \includegraphics<+,+(5)>[height=.9\textheight]{lenna}
+  \begin{itemize}[<+-5 | alert@+>]
+  \item \alert<.(3)>{You are looking at this\only<.(3)>{ again!}}
+  \item Now at this
+  \item And now at this
+  \end{itemize}
+
+  \onslide+<5> For a detailed explanation of overlays, see \texttt{beamer}'s user guide, § 9.
+\end{frame}
+
+\section{Conclusion}
+
+{% Make this frame stand out (only without metropolis)
+  % \setbeamercolor{background canvas}{bg=structure.fg}
+  % \setbeamercolor{normal text}{fg=structure.bg}
+  % \usebeamercolor[fg]{normal text}
+  % \setbeamertemplate{footline}{}
+  % metropolis provides a frame option 'standout' to achieve this result (see its manual)
+  \begin{frame}[standout] % metropolis-only (uncomment only with metropolis theme, otherwise uncomment lines above)
+    \centering\huge\bfseries
+    Any question?
+  \end{frame}
+}
+
+\appendix
+
+\begin{frame}[fragile]{Backup slides} % 'fragile' option necessary with \verb
+  Sometimes, it is useful to add slides at the end of your presentation to refer to during audience questions.
+
+  The best way to do this is to include the \verb|appendixnumberbeamer| package in your preamble and call \verb|\appendix| before your backup slides.
+\end{frame}
+
+\setbeamertemplate{frametitle continuation}{\insertcontinuationcountroman}
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+\begin{frame}[allowframebreaks]{References}
+  \nocite{*}
+  % Version with biblatex
+  \printbibliography[heading=none]
+  % Version without biblatex (comment the two previous lines)
+  % \bibliography{references}
+  % \bibliographystyle{abbrv}
+\end{frame}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% ispell-local-dictionary: "british"
+%%% End:

@@ -26,6 +26,7 @@ Start your visit with our [wiki](https://github.com/texstremists/Document-design
 
 - [beamer_basics](https://github.com/texstremists/Document-design/blob/master/presentations/beamer_basics/beamer_basics.tex): minimalist example of a beamer presentation, for beginners.
 
+- [beamer_showcase](https://github.com/texstremists/Document-design/blob/master/presentations/beamer_showcase/beamer_showcase.tex): showcase of what can be done with beamer. Intended for demonstration purposes as well as for users already familiar with beamer.
 
 
 ## Typefaces
