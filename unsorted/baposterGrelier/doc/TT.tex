@@ -1,0 +1,14 @@
+\footnotesize
+\begin{tikzpicture}[scale=1,sibling distance=10mm,level distance = 5mm,baseline=(current bounding box.south),label distance=1mm]
+
+\node [active,label={[label distance=0mm]above:{$\{1,2,3,4\}$}}]  {}
+child {node [active,label={[label distance=0mm]above left:{$\{1,2,3\}$}}]  {}
+	child { node [active,label={[label distance=0mm]above left:{$\{1,2\}$}}] {}
+		child {node [active,label={below:{$\{1\}$}}] {}}
+		child {node [active,label=below:{$\{2\}$}] {}}
+		}
+	child { node [active,label=below:{$\{3\}$}] {}}
+	}
+child {node [active,label=below:{$\{4\}$}] {}}
+;
+\end{tikzpicture}

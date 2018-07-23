@@ -1,0 +1,17 @@
+\footnotesize
+\begin{tikzpicture}[scale=1,sibling distance=9mm,level distance = 8mm,baseline=(current bounding box.south),label distance=1mm]
+
+\addtocounter{treestep}{1}
+\draw[draw=none] (0,0) -- ++ (-4mm*\thetreestep,-8mm*\thetreestep) -- ++ (-4mm,-4mm);
+\draw[draw=none] (0,0) -- ++ (8mm-4mm*\thetreestep,16mm-8mm*\thetreestep) -- ++ (8mm,8mm);
+\node [active,label=above:{$1$}]  {}
+child {node [active,label=above left:{$2$}]  {}
+	child { node [active,label=above left:{$4$}] {}
+		child {node [active,label=below:{$\stackon[1pt]{\alert{\{z_1\}}}{6}$}] {}}
+		child {node [active,label=below:{$\stackon[1pt]{\alert{\{z_2\}}}{7}$}] {}}
+	}
+	child { node [active,label=below:{$\stackon[1pt]{\alert{\{z_3\}}}{5}$}] {}}
+}
+child {node [active,label=below:{$\stackon[1pt]{\alert{\{z_4\}}}{3}$}] {}}
+;
+\end{tikzpicture}

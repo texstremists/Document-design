@@ -1,0 +1,11 @@
+\footnotesize
+\begin{tikzpicture}[scale=1,sibling distance=9mm,level distance = 8mm,baseline=(current bounding box.south),label distance=1mm]
+
+\draw[draw=none] (0,0) -- ++ (-4mm*\thetreestep,-8mm*\thetreestep) -- ++ (-4mm,-4mm);
+\draw[draw=none] (0,0) -- ++ (8mm-4mm*\thetreestep,16mm-8mm*\thetreestep) -- ++ (8mm,8mm);
+
+\node [active,label=above:{$1$}]  {}
+child {node [active,label=below:{$\stackon{\alert{\{z_1\}}}{2}$}]  {}}
+child {node [active,label=below:{$\stackon{\alert{\{z_2\}}}{3}$}] {}}
+;
+\end{tikzpicture}

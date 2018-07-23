@@ -1,0 +1,16 @@
+\footnotesize
+\begin{tikzpicture}[scale=1.2,level distance = 4mm,baseline=(current bounding box.south),label distance=1mm]
+\tikzstyle{level 1}=[sibling distance=15mm]
+\tikzstyle{level 2}=[sibling distance=8mm]
+
+\node [active,label={[label distance=0mm]above:{$\var{f_{1,2,3,4}}$}}]  {}
+child {node [active,label={[label distance=0mm]above left:{$\var{f_{1,2}}$}}]  {}
+	child { node [active,label=below:{$\var{f_{1}}$}] {}} 
+	child { node [active,label={below:$\var{f_{2}}$}] {}}
+	}
+child {node [active,label={[label distance=0mm]above right:{$\var{f_{3,4}}$}}] {}
+	child { node [active,label=below:{$\var{f_{3}}$}] {}}
+	child { node [active,label=below:{$\var{f_{4}}$}] {}}  
+	}
+;
+\end{tikzpicture}

@@ -1,0 +1,327 @@
+% This poster was created using the baposter class,
+% it was presented at the MoRePaS 2018 international
+% conference, and can be viewed online here:
+% https://doi.org/10.14293/P2199-8442.1.SOP-MATH.JHXASX.v1
+
+\documentclass[portrait,a0paper]{baposter}
+
+% CUstom packages
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lipsum}
+\usepackage{multicol}
+\usepackage{graphbox}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
+\usepackage[font=small,labelfont=bf,justification=centering]{caption}
+\usepackage{natbib}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{stackengine}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage[none]{hyphenat}
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs}
+
+% CUstom colors
+\definecolor{mDarkBrown}{HTML}{604c38}
+\definecolor{mDarkTeal}{HTML}{23373b}
+\definecolor{mLightBrown_old}{HTML}{EB811B}
+\definecolor{mLightGreen}{HTML}{14B03D}
+\definecolor{mDarkBlue}{HTML}{117777}
+\definecolor{boxColor}{HTML}{CCDDAA}
+\colorlet{boxColor}{black!2}
+
+\colorlet{mLightBrown}{mLightBrown_old!90!black}
+
+% CUstom font
+\usepackage[sfdefault]{FiraSans}
+\usepackage{FiraMono}
+\makeatletter
+\newcommand{\globalcolor}[1]{%
+	\color{#1}\global\let\default@color\current@color
+}
+\makeatother
+\AtBeginDocument{\globalcolor{mDarkTeal!80!black}}
+
+% CUstom commands
+\newcommand{\alert}[1]{\textcolor{mLightBrown!80}{#1}}
+\newcommand{\var}[1]{\textcolor{mDarkBlue!75!black}{#1}}
+\usetikzlibrary{plotmarks,trees,arrows,shapes,positioning}
+\tikzset{>=latex}
+\tikzstyle{active}=[circle,fill=mDarkBlue,minimum size=.25cm]
+\captionsetup{labelformat=empty}
+\newcommand{\T}{^\mathsf T}
+\setlength{\bibsep}{0pt plus 0.5ex}
+\stackMath
+\sisetup{scientific-notation = fixed,fixed-exponent=0}
+\newtagform{eqColor}{\color{mDarkBlue}(}{)}
+\usetagform{eqColor}
+\sisetup{group-separator = {}}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+% SAve space in lists. Use this after the opening of the list
+\newcommand{\compresslist}{%
+\setlength{\itemsep}{2pt}%
+\setlength{\parskip}{0pt}%
+\setlength{\parsep}{0pt}%
+}
+\setlist[itemize]{leftmargin=12pt}
+
+% PGFPLOTS OPTIONS
+\pgfplotsset{every axis/.append style={
+		label style={font=\Huge},
+		tick label style={font=\small}  
+	}}
+
+\begin{document}
+\begin{poster}%
+%% Poster options
+{
+	grid=false,
+	columns=3,
+	colspacing=1em,
+	bgColorOne=white,
+	headerColorOne=mLightBrown!0,
+	headerFontColor=mLightBrown!80,
+	borderColor=mLightBrown!50,
+	textborder=rectangle,
+	eyecatcher=true,
+	headerborder=none,
+	headerheight=0.1\textheight,
+	boxheaderheight=1.75em,
+	headershape=smallrounded,
+	headershade=plain,
+	headerfont=\large\bfseries, %Sans Serif
+	boxColorOne=boxColor,
+	background=plain,
+	linewidth=1pt
+}
+	% Eye Catcher
+{
+
+}
+	% Title
+{\spaceskip 0.4 em\relax Statistical Learning in Tree-Based\linebreak Tensor Format\vspace{0.5em}}
+	% Authors
+{\hfill {Erwan Grelier}\textsuperscript{\dag} \hfill {Mathilde Chevreuil} \hfill {Anthony Nouy} \hfill \vphantom{A} \vspace{-5mm}}
+{
+	\begin{tabular}{cccccc}
+		\\[7mm]
+		\multicolumn{3}{c}{\includegraphics[align=c,height=1.3cm]{./doc/logo_centrale.eps}} &
+		\multicolumn{3}{c}{\includegraphics[align=c,height=1.3cm]{./doc/logo_univ.eps}} \\[.6cm]
+		\multicolumn{2}{c}{\includegraphics[align=c,height=1.3cm]{./doc/logo_lmjl.pdf}} &
+		\multicolumn{2}{c}{\includegraphics[align=c,height=1.6cm]{./doc/logo_GeM.eps}} &
+		\multicolumn{2}{c}{\includegraphics[align=c,height=1.3cm]{./doc/logo_CNRS.eps}}
+	\end{tabular}
+}
+
+%% Boxes
+\headerbox{}{name=affiliations,column=0,row=0,span=3,boxheaderheight=0em,boxColorOne=white,headerColorOne=white,textborder=none,headerborder=none}{
+	\vspace{-.4cm}
+	\begin{center}
+		\begin{tabularx}{\textwidth}{YYYY}
+			\hspace{4.5mm}Centrale Nantes&
+			Université de Nantes&
+			\hspace{-6.9mm}Centrale Nantes&
+			 \\
+			\hspace{4.5mm}GeM (UMR CNRS 6183)&
+			GeM (UMR CNRS 6183)&
+			\hspace{-6.9mm}LMJL (UMR CNRS 6629)&
+			\mbox{\textsuperscript{\dag}\textbf{\texttt{erwan.grelier@ec-nantes.fr}}}
+		\end{tabularx}
+	\end{center}
+}
+
+\headerbox{References}{name=references,column=0,span=2,above=bottom,textborder=none,headerColorOne=white,headerborder=none,headerFontColor=mDarkTeal!80!black}{
+	\nocite{Hackbusch2012}
+	\nocite{Grasedyck2010}
+	\nocite{nouy:hal-01262422}
+	\nocite{Chevreuil1}
+	\renewcommand{\section}[2]{}
+	\bibliographystyle{abbrv}
+	\bibliography{bibliography}
+}
+
+\headerbox{\begin{tabular}{c}
+Statistical learning for \\uncertainty quantification
+\end{tabular}}{name=UQ,column=0,below=affiliations,span=1,boxheaderheight=3.3em}{
+	We denote by
+	\vspace{-2mm}
+	\begin{itemize}\compresslist
+		\item $X = (X_1,\ldots,X_d)$ a set of \alert{$d$ random variables},
+		\item $Y = f(X)$ the random output of a \alert{\mbox{model $f$}, costly to evaluate}.
+	\end{itemize}
+	The \alert{uncertainty quantification} requires many realizations of $Y$, hence \alert{many evaluations of $f$}. To reduce their cost we use an \alert{approximation $v$ of $f$}, by solving
+	\begin{equation}
+		\label{eq: problem}
+		\min\limits_{\var{v} \in \mathcal V} \frac 1 N \sum_{k=1}^N \left|y^k - \var{v}(x^k)\right|^2
+	\end{equation}
+	with $\mathcal V$ an approximation set and $(x^k,y^k)$ a \alert{realization of $(X,Y)$}.
+}
+
+\headerbox{Tree-based (TB) tensor format}{name=TB,column=0,below=UQ,above=references}{
+	A function \alert{$v \in \mathcal T^T_r$} in \alert{tree-based \mbox{tensor format}} associated to a \alert{dimension partition tree} \mbox{$T\subset 2^{\{ 1,\ldots,d \}}$}
+	\vspace{-10mm}
+	\begin{center}
+		\include{./doc/HT}
+	\end{center}
+	\vspace{-4mm}
+	admits a representation as a \alert{composition of multilinear vector-valued functions} (tensors):
+	\begin{alignat*}{2}
+		v(x) &= v(x_1,x_2,x_3,x_4) \\ 
+		&= \var{f_{1,2,3,4}}(
+			\underbrace{\var{g_{1,2}}(x_1,x_2)}_{\var{f_{1,2}}(\var{f_1}(x_1),\var{f_2}(x_2))},\underbrace{\var{g_{3,4}}(x_3,x_4)}_{\var{f_{3,4}}(\var{f_3}(x_3),\var{f_4}(x_4))})
+	\end{alignat*}
+	where for the leaves of $T$, $1 \leq \nu \leq d$, 
+	\begin{equation*}
+	\var{f_\nu} : \mathcal X^\nu \rightarrow \mathbb R^{r_\nu},
+	\end{equation*}
+	and for a node $\alpha$ with $s$ children $S(\alpha)$,
+	\begin{equation*}
+	\var{f_\alpha} : \bigtimes_{\mathclap{\beta \in S(\alpha)}} \mathbb R^{r_{\beta}} \rightarrow \mathbb R^{r_\alpha}
+	\end{equation*}
+	is a multilinear function identified with a tensor in $\mathbb R^{r_\alpha \times r_{\beta_1} \times \cdots \times r_{\beta_s}}$.
+	\bigbreak
+	Properties of the set $\mathcal T^T_r$:
+	\vspace{-2mm}
+	\begin{itemize}\compresslist
+		\item \alert{closed}, best approximation problems are well posed,
+		\item \alert{storage complexity} of $v$ scaling linearly \mbox{with $d$},
+		\item \alert{multilinear parametrization} of $v$,
+		\item existence of a \alert{higher-order singular value decomposition} (HOSVD) of $v$.
+	\end{itemize}
+}
+
+\headerbox{Statistical learning in TB tensor format}{name=SLTB,column=1,below=affiliations}{
+	Using the multilinear parametrization of \mbox{$v \in \mathcal T^T_r$}, problem \eqref{eq: problem} is solved using an \alert{alternating minimization algorithm}, leading to \alert{linear problems}:
+	\begin{equation*}
+		\min\limits_{\var{a_\alpha} \in \mathbb R^{m_\alpha}} \frac 1 N \sum\limits_{k=1}^N \left| y^k - \Psi_\alpha(x^k)\T \var{a_\alpha} \right|^2,\; \forall \alpha \in T
+	\end{equation*}
+	with $\Psi_\alpha(x)$ such that $v(x) = \Psi_\alpha(x)\T \var{a_\alpha}$. For the leaves of $T$, a \alert{sparse approximation} is computed by using a \alert{working-set} strategy.
+	\bigbreak
+	\textbf{Iterative adaptation of $r$} 
+	
+	Starting from $r^0 = (0,\ldots,0)$, at iteration $n$, given an approximation $v^n \in \mathcal T^T_{r^n}$:
+	\begin{itemize}\compresslist
+		\item \alert{increase the ranks} $\left( r^n_\beta \right)_{\beta \in T_n}$ associated with a \alert{subset of nodes $T_n$}$ \subset T$,		
+		\item $T_n$ is chosen as
+		\begin{equation*}
+			T_n = \left\{ \alpha \in T: \sigma_\alpha \ge \theta \max\limits_{\beta \in T} \sigma_\beta \right\},
+		\end{equation*}
+		with $\theta \in [0,1]$ and $\sigma_\alpha$ the smallest \alert{$\alpha$-singular value} for the node $\alpha$, obtained by computing the SVD of an $\alpha$-matricization of $v^n$.
+	\end{itemize}
+}
+
+\headerbox{First numerical experiment}{name=results,column=1,below=SLTB,above=references}{
+	Approximation of 
+	\begin{equation*}
+		f(X) = \left( 1 + \sum_{i=1}^d a_i X_i \right)^{-2},
+	\end{equation*}
+	\begin{itemize}\compresslist
+		\item $X = (X_1,\ldots,X_{10})$, $X_i \sim \mathcal U(0,1)$,
+		\item $0 \leq a_i \leq 1$, $i = 1,\ldots,d$,
+		\item \alert{linear tree} (tensor train Tucker format),
+		\item approximation spaces at the leaves: polynomial spaces of \alert{maximal degree \num{20}},
+		\item \alert{\num{10000} training samples}.
+	\end{itemize}
+	\vspace{2mm}
+	\hspace{-5.75mm}
+	\includegraphics[scale=1]{./doc/cornerPeakHTT.pdf}
+}
+
+\headerbox{TB learning and changes of variables}{name=TBCOV,column=2,below=affiliations}{
+	\newcounter{treestep}
+	\setcounter{treestep}{0}
+	An approximation is searched in the form
+	\vspace{-1mm}
+	\begin{equation}
+		v(x) = \var{h}(\var{g}(x)) = \var{h}(\var{g_1}(x),\ldots,\var{g_m}(x)),
+	\end{equation}
+	with $\var{h} \in \mathcal T^T_r$ and $\var{g_i}: \mathbb R^d \rightarrow \mathbb R$, $i = 1,\ldots,m$.
+	\bigbreak
+	\textbf{Outline of the algorithm}
+
+ 	Construction of approximations $v_m$, at each iteration \alert{introducing a new variable} \mbox{$\var{z_m} =\var{g_m}(x)$}, and alternatively optimizing on
+ 	\begin{itemize}\compresslist
+ 		\item $\var{h} \in \mathcal T^{T_m}_{r_m}$, with fixed $\var g$, using the \alert{statistical learning algorithm in TB tensor format},
+ 		\item $\var{g}$, with fixed $\var h$, using a \alert{Gauss-Newton algorithm},
+ 	\end{itemize}
+ 	\vspace{-2mm}
+ 	until convergence.
+
+ 	\vspace{-1.65cm}
+ 	\hspace{-.75cm}
+ 	\hfill
+	\begin{minipage}{.2\textwidth}
+		\begin{center}
+			\include{./doc/sequentialTTT1}
+		\end{center}
+	\end{minipage}
+	\hspace{.15cm}
+	\begin{minipage}{.2\textwidth}
+		\begin{center}
+			\include{./doc/sequentialTTT2}
+		\end{center}
+	\end{minipage}
+	\hspace{.5cm}
+	\begin{minipage}{.2\textwidth}
+		\begin{center}
+			\include{./doc/sequentialTTT3}
+		\end{center}
+	\end{minipage}
+	\hfill
+	\vspace{-.25cm}
+}
+
+\headerbox{Second numerical experiment}{name=results_2,column=2,below=TBCOV}{
+	Approximation of 
+	\begin{align}
+		f(X) = &\sin(\mathrm w_2\T X + \mathrm w_3\T X) \cos(\mathrm w_1\T X + \mathrm w_4\T X) + \notag \\
+			&\cos(\mathrm w_1\T X + \mathrm w_3\T X),
+	\end{align}
+	\begin{itemize}\compresslist
+			\vspace{-5mm}
+		\item $d = 20$,
+		\item $X = (X_1,\ldots,X_d)$, 
+		\item $X_i \sim \mathcal U(-1,1)$, $i = 1,\ldots,d$,
+		\item \alert{$m \leq 4$},
+		\item approximation spaces at the leaves: polynomial spaces of \alert{maximal degree \num{10}},
+		\item approximation space for the $\var{g_j}$, ${j = 1,\ldots,4}$: \alert{linear functions},
+		\item \alert{$N = \num{1000}$ training samples}.
+	\end{itemize}
+	\begin{center}
+		\begin{tabular}{ccc} \toprule
+			$v$ & \begin{tabular}{@{}c}Confidence interval\\ for the error\end{tabular} & \begin{tabular}{@{}c}Storage\\complexity\end{tabular} \\ \midrule
+			$\var{h}$ & $\left[\num{2e-5},\num{1.1} \right] \cdot 10^{-1}$ & \num{435} \\
+			$\var{h}\circ \var{g}$ &  
+			$\left[\num{1.6},\num{7.9} \right] \cdot 10^{-3}$ & \num{342} \\\bottomrule
+		\end{tabular}
+	\end{center}
+	\medbreak
+	$N$ being small compared to $d$, introducing changes of variables \alert{reduces the mean and variance of the error, and the storage complexity}.
+}
+
+\headerbox{Conclusions}{name=conclusion,column=2,span=1,below=results_2}{
+	The statistical learning in tree-based tensor format:
+	\vspace{-.1cm}
+	\begin{itemize}\compresslist
+		\item uses the \alert{classical machinery of linear approximation},
+		\item exploits both \alert{low-rank} and \alert{sparsity},
+		\item can be combined with \alert{changes of variables}.
+	\end{itemize}
+}
+
+\headerbox{Outlooks}{name=outlooks,column=2,span=1,below=conclusion,above=bottom}{
+	\begin{itemize}\compresslist
+		\item Perform \alert{tree adaptation},
+		\item use \alert{other trees} for $\var h \in \mathcal T^T_r$ when $v = \var h \circ \var g$,
+		\item \alert{characterize the properties of the set} of functions of the form $\var h\circ \var g$, $\var h \in \mathcal T^T_r$.
+	\end{itemize}
+}
+\end{poster}
+\end{document}

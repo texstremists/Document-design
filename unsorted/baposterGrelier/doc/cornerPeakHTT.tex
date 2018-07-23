@@ -1,0 +1,171 @@
+% !TeX program = xelatex
+\documentclass{standalone}
+
+%\PassOptionsToPackage{cmyk}{xcolor}
+
+\usepackage{pgfplots}
+
+\definecolor{TolDarkBlue}{HTML}{6699CC}
+\definecolor{TolLightGreen}{HTML}{44AA99}
+\definecolor{TolDarkBrown}{HTML}{999933}
+\definecolor{TolLightBrown}{HTML}{DDCC77}
+
+\pgfplotscreateplotcyclelist{mlineplot cycle}{%
+	{TolDarkBlue, mark=*, mark size=1.5pt},
+	{TolLightBrown, mark=square*, mark size=1.3pt},
+	{TolLightGreen, mark=triangle*, mark size=1.5pt},
+	{TolDarkBrown, mark=diamond*, mark size=1.5pt},
+	}
+	
+	\pgfplotsset{
+		mbaseplot/.style={
+			legend style={
+				draw=none,
+				fill=none,
+				cells={anchor=west},
+			},
+			x tick label style={
+				font=\footnotesize
+			},
+			y tick label style={
+				font=\footnotesize
+			},
+			legend style={
+				font=\footnotesize
+			},
+			major grid style={
+				dotted,
+			},
+			axis x line*=bottom,
+		},
+		disable thousands separator/.style={
+			/pgf/number format/.cd,
+			1000 sep={}
+		},
+		mlineplot/.style={
+			mbaseplot,
+			xmajorgrids=true,
+			ymajorgrids=true,
+			major grid style={dotted},
+			axis x line=bottom,
+			axis y line=left,
+			legend style={
+				cells={anchor=west},
+				draw=none
+			},
+			cycle list name=mlineplot cycle,
+		},
+	}
+	
+	\definecolor{mDarkBlue}{HTML}{117777}
+	\definecolor{mLightBrown}{HTML}{EB811B}
+	\definecolor{mDarkTeal}{HTML}{23373b}
+	
+	\colorlet{mLightBrown}{mLightBrown!90!black}
+	\colorlet{mLightBrown}{mLightBrown!75}
+	
+	\usepackage[sfdefault]{FiraSans}
+	\usepackage{FiraMono}
+	\makeatletter
+	\newcommand{\globalcolor}[1]{%
+		\color{#1}\global\let\default@color\current@color
+	}
+	\makeatother
+	\AtBeginDocument{\globalcolor{mDarkTeal}}
+	
+\begin{document}
+\newlength{\fwidth}
+\newlength{\fheight}
+\setlength\fwidth{130pt}
+\setlength\fheight{120pt}
+	
+\begin{tikzpicture}
+\begin{axis}[%
+mlineplot,
+disable thousands separator,
+width=\fwidth,
+height=\fheight,
+scale only axis,
+xlabel style={font=\color{white!15!black}},
+xlabel={\color{mDarkTeal}Iteration $n$},
+ylabel style={font=\color{white!15!black}},
+ylabel={\color{mDarkBlue} Relative test error},
+legend style={draw=white!15!black, very thin, anchor=south, at={(0.5,1.05)}},
+no markers,
+every axis plot/.append style={thick},
+at={(0,0)},
+separate axis lines,
+yticklabel pos=left,
+ymode=log,
+]
+\addplot[mDarkBlue]
+  table[row sep=crcr]{%
+  	1	0.0147501668222716\\
+  	2	0.0134563414592627\\
+  	3	0.0101415499302212\\
+  	4	0.00803922292733302\\
+  	5	0.00617778407804322\\
+  	6	0.000690570209794319\\
+  	7	0.000233764977444442\\
+  	8	0.000157556712448706\\
+  	9	0.000100922273445284\\
+  	10	6.65252974131928e-05\\
+  	11	4.53291769948219e-05\\
+  	12	2.8233980831199e-05\\
+  	13	5.32496503090382e-06\\
+  	14	4.03995974639322e-06\\
+  	15	1.71214616571196e-06\\
+  	16	1.53752402582519e-06\\
+  	17	8.53662370144015e-07\\
+  	18	9.62648264037669e-07\\
+  	19	5.3104174128106e-07\\
+  	20	2.96311581604113e-07\\
+  };
+\end{axis}
+
+\begin{axis}[%
+mlineplot,
+axis y line*=right,
+ylabel near ticks,
+yticklabel pos=right,
+ylabel style={font=\color{white!15!black}},
+ylabel={\color{mLightBrown} Storage complexity},
+disable thousands separator,
+width=\fwidth,
+height=\fheight,
+scale only axis,
+legend columns=6,
+legend style={draw=white!15!black, very thin, anchor=south, at={(0.5,1.05)}},
+no markers,
+every axis plot/.append style={thick},
+at={(0,0)},
+separate axis lines,
+]
+
+\addplot[mLightBrown]
+  table[row sep=crcr]{%
+  	1	219\\
+  	2	288\\
+  	3	338\\
+  	4	363\\
+  	5	388\\
+  	6	484\\
+  	7	514\\
+  	8	568\\
+  	9	627\\
+  	10	687\\
+  	11	717\\
+  	12	747\\
+  	13	810\\
+  	14	924\\
+  	15	986\\
+  	16	1019\\
+  	17	1059\\
+  	18	1096\\
+  	19	1170\\
+  	20	1207\\
+  };
+
+\end{axis}
+\end{tikzpicture}%
+\end{document}
