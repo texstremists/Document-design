@@ -14,8 +14,8 @@ Start your visit with our [wiki](https://github.com/texstremists/Document-design
 - [algorithm-examples](https://github.com/texstremists/Document-design/blob/master/unsorted/algorithmExamples.tex): examples of algorithm typesetting in LaTeX
 - [template-Spi-Manuscript](https://github.com/texstremists/Document-design/blob/master/unsorted/template-Spi-Manuscript/): a thesis template featuring the new **SPI cover** 
 - [differential-operator](https://github.com/texstremists/Document-design/blob/master/unsorted/differential-operator.tex): example on how (not) to typeset the differential operator; see [wiki](https://github.com/texstremists/Document-design/wiki/Typesetting-math#differential-operator-definition) for explanations
-- [baposterGrelier](https://github.com/texstremists/Document-design/blob/master/unsorted/baposterGrelier/): example of a poster created using the baposter class.
-
+- [baposterGrelier](https://github.com/texstremists/Document-design/blob/master/unsorted/baposterGrelier/): example of a poster created using the baposter class
+- [baposterHaberstich](https://github.com/texstremists/Document-design/blob/master/unsorted/baposterHaberstich/): another example of a poster created using the baposter class.
 
 ## Presentation
 
