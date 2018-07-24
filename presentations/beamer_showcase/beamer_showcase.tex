@@ -51,9 +51,11 @@ block=fill, % see metropolis manual for this option and the following ones
 sectionpage=progressbar,
 subsectionpage=progressbar,
 progressbar=frametitle]{metropolis}
-% set progress bar width
+% Set progress bar width (requires a metropolis version >=1.2)
 \makeatletter 
 \setlength{\metropolis@progressinheadfoot@linewidth}{1pt}
+%\setlength{\metropolis@titleseparator@linewidth}{1pt}
+%\setlength{\metropolis@progressonsectionpage@linewidth}{1pt}
 \makeatother
 % Alternative colour theme
 % \usecolortheme{solarizeddark}
@@ -105,7 +107,7 @@ progressbar=frametitle]{metropolis}
 \title[My short title]{My long title}
 \author[F.\,N. Surname ]{First Name \textsc{Surname}}
 \institute[Short affiliation]{My long affiliation}
-\date[2018-07-05]{Beamer example, 5\textsuperscript{th} July 2018, Nantes, France}
+\date[2018-07-05]{Beamer showcase, 5\textsuperscript{th} July 2018, Nantes, France}
 
 \begin{document}
 
@@ -229,7 +231,7 @@ progressbar=frametitle]{metropolis}
       \midrule
       Gnat                     & per gram    & 13.65      \\
                                & each        & 0.01       \\
-      Gnu                      & stuff       & 92.50      \\
+      Gnu                      & stuffed     & 92.50      \\
       Emu                      & stuffed     & 33.33      \\
       Armadillo                & frozen      & 8.99       \\
       \bottomrule
