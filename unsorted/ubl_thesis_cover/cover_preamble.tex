@@ -1,0 +1,277 @@
+% # Template description
+% 
+% This template aims at producing the generic thesis cover common to every doctoral school of Université Bretagne Loire.
+% It is meant to be minimalistic, easy to understand and modify.
+% It comprises three files:
+% 1. cover_preamble.tex: to be input in your preamble;
+% 2. cover_front.tex: to be input at the beginning of your {document} environment;
+% 3. cover_back.tex: to be input at the end of your {document} environment;
+%
+% # How to use this template
+% 
+% Usage of these files is illustrated in example.tex; this file is only an example and not part of the template.
+% A good thing to check first is whether you can compile it. Under Linux, simply run (possibly twice) the command
+%  lualatex example.tex
+%
+% To use this template in your document, you must fill in the necessary information (e.g. your name).
+% Search for the text USER_INPUT to locate where information from you is required (currently only in files cover_preamble.tex and cover_front.tex)
+% If you like the result, that's all.
+%
+% However, you may want to change the template, e.g. to adapt it to your specific doctoral school or tweak it to your liking.
+% Look for the text USER_CONFIG to find places where such modifications are expected.
+%
+% # Common issues
+%
+% - Be careful if you move files in different directories. You will have to ensure that \input commands have the correct path.
+% - You may have to solve conflicts between cover_preamble.tex and the rest of your preamble (package loaded twice, wrong loading order, incompatible packages, etc.)
+% - This template is only compatible with the compiler lualatex, for the ability to change font families easily.
+% - If you use page dimensions other than A4, you will have to adjust absolute distances (e.g. vertical spacing, margins). Note that the drawings are coded relatively to page dimensions, so they should not be affected.
+%
+% # LEGACY version
+%
+% It is possible (yet not recommended) to use image files instead of TikZ drawings.
+% That is called the LEGACY version.
+% Look for the text LEGACY to find places to comment or uncomment code.
+% Be aware that you will have to provide the image files and write their correct paths where relevant.
+%
+% # About
+%
+% Version date: 2019-10-15
+% Available at https://github.com/texstremists/Document-design/blob/master/unsorted/ubl_thesis_cover/
+% Credits: Quentin Ayoul-Guilmard (mailto:quentin.ayoul-guilmard@centraliens-nantes.net)
+
+
+% This file is to be input in your preamble.
+% You may want to check for redundancy or conflicts with the rest of your preamble.
+% In particular, the loading order of some packages is important.
+
+% # Define here most of user-specific content
+% 
+% USER_INPUT: Replace all macro definitions below with your own
+\newcommand{\MyInstitute}{[Institut de Recherche]}
+\newcommand{\MyAuthor}{[Prénom \textsc{Nom}]}
+\newcommand{\MyPlace}{[Lieu]}
+\newcommand{\MySpeciality}{[Spécialité]}
+\newcommand{\MyThesisNumber}{[thesis number]}
+\newcommand{\MyDate}{[Date]}
+\newcommand{\MyTitleFRA}{[Titre de Thèse]}
+\newcommand{\MySubTitleFRA}{[Sous-titre de Thèse]}
+\newcommand{\MyTitleENG}{[Thesis title]}
+\newcommand{\MySubTitleENG}{[Thesis subtitle]}
+\newcommand{\MyKeywordsFRA}{[De 3 à 6 mots-clefs]}
+\newcommand{\MyKeywordsENG}{[From 3 to 6 keywords]}
+\newcommand{\MyAbstractFRA}{
+  \lipsum[15-17]% Requires lipsum package (but that's only for example)
+}
+\newcommand{\MyAbstractENG}{
+  \lipsum[18-20]% Requires lipsum package (but that's only for example)
+}
+
+% USER_CONFIG: the following definitions depend on your doctoral school
+\newcommand{\DSFullName}{%
+  Sciences de l'ingénieur% SPI doctoral school
+  % Biologie Santé% BS doctoral school
+}
+\newcommand{\theInstitution}{% university name preceded by uncapitalised, definite article
+  l'\'Ecole Centrale de Nantes% SPI
+  % l'Université de Nantes% BS
+}
+\newcommand{\DSNumber}{%
+  602% SPI
+  % 605% BS
+}
+
+% # Define typeface
+%
+\usepackage{fontspec}% compatible only with lualatex
+% USER_CONFIG: Choose cover typeface
+\newfontfamily\coverFont{Tex Gyre Adventor}% This font needs to be installed (or the file provided)
+
+
+% # Define drawing settings
+%
+\usepackage{pgfplots} % pdf picture declaration
+% Known theme colour of UBL doctoral schools
+\definecolor{blueSPI}{RGB}{159,182,217} % colour of SPI doctoral school
+\definecolor{greenBS}{RGB}{181,226,217} % colour of BS doctoral school
+\definecolor{coverGrey}{RGB}{185,200,193} % sometimes used for hatches and dots on front cover
+% To identify such colour, under Linux (with ImageMagick installed) you can run the command:
+%  convert monochrome.png +dither -colors 1 -define histogram:unique-colors=true -format "%c" histogram:info:
+% where monochrome.png is an image containing only the colour you want to identify. The output for the SPI doctoral school looks like:
+%  8001: (159,182,217) #9FB6D9 srgb(159,182,217)
+
+% USER_CONFIG: choose the colour of your doctoral school
+% Above are already some definitions, and instructions on how to define your own
+\colorlet{DSColour}{blueSPI}
+
+% USER_CONFIG: colours of hatches and dots, dot radius, random seed.
+% LEGACY: you may comment out the following block if using image files
+% Colours of hatches on front and back cover
+\colorlet{hatchColourFront}{DSColour}% you may want coverGrey
+\colorlet{hatchColourBack}{DSColour}
+% Colours of dots on front and back cover
+\colorlet{dotColourFront}{DSColour}% you may coverGrey
+\colorlet{dotColourBack}{DSColour}
+% Radius of dots
+\newlength{\dotRadius}
+\setlength{\dotRadius}{.2mm}
+% Random math seed
+% Change value to generate new dot pattern.
+% Comment out to generate a new pattern at every compilation.
+\pgfmathsetseed{20191015} 
+
+% # Define image files
+% 
+% USER_CONFIG: change height of logo
+\newlength{\myLogoHeight}\setlength{\myLogoHeight}{2.3cm} % for consistency
+% USER_CONFIG: Check that the two file paths below are correct
+\pgfdeclareimage[height=\myLogoHeight]{logoUniversity}{% university Logo
+  img/LogoCN% SPI
+  % img/LogoUN_monochrome% BS
+}
+\pgfdeclareimage[height=\myLogoHeight]{logoDS}{% Logo of Doctoral School
+  img/LogoSPI% SPI
+  % img/LogoBS% BS
+}
+
+% LEGACY: uncomment and check file paths if you use it
+% \pgfdeclareimage[width=\paperwidth]{FrontBG}{% Background of front cover
+%   img/FrontBackgroundSPI% SPI
+%   % img/FrontBackgroundBS% BS
+% }
+% \pgfdeclareimage[width=\paperwidth]{BackBGTop}{% Triangle(s) at top of back cover
+%   img/TriangleTopSPI% SPI
+%   % img/TriangleTopBS% BS
+% }
+% \pgfdeclareimage[width=\paperwidth]{BackBGBottom}{% Triangle at bottom of back cover
+%   img/TriangleBottomSPI% SPI
+%   % img/TriangleBottomBS% BS
+% } 
+
+%   # Define cover environment
+%
+\usepackage{tikz}% for drawings, including placing the logos
+\usepackage{geometry}% for local changes in margins
+% Cover environment
+\newenvironment{cover}{
+  \coverFont% Switch typeface
+  \selectlanguage{french}% Use French as default language for cover (has to be loaded in babel)
+  \thispagestyle{empty}% no header nor footer
+  \newgeometry{top=1cm,bottom=2cm,left=1.5cm,right=1.5cm}% set cover page margins
+}{
+  % Logos common to front and back covers
+  % These are in an overlay to be at the foreground (overlapped otherwise)
+  % For this, this picture has to be at the end of the environment
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north west] 
+    at ([yshift=-10mm,xshift=15mm]current page.north west) (DSLogo)
+    {\pgfuseimage{logoDS}};
+    % 
+    \node[anchor=north east] 
+    at ([yshift=-10mm,xshift=-15mm]current page.north east) (UniversityLogo)
+    {\pgfuseimage{logoUniversity}};
+  \end{tikzpicture}
+
+  % Return geometry to normal
+  \restoregeometry
+}
+% Define \clearoddpage command
+% to clear everything (as \clearpage) then jump to next even-numbered page.
+% Used to place the back cover on even-numbered pages.
+% Supports double-column setup.
+\makeatletter
+\newcommand{\clearoddpage}{
+  \clearpage% finish pending business (floats, etc.)
+  \if@twoside 
+   \ifodd
+    \c@page \hbox{}\newpage
+    \if@twocolumn\hbox{}%
+     \newpage
+    \fi
+   \fi
+  \fi}
+\makeatother
+
+
+% # Define abstract environment
+
+% USER_CONFIG: choose languages of your thesis (load main one first)
+\usepackage[french,british]{babel}
+
+\usepackage[babel=true]{csquotes} % babel must be loaded before
+\usepackage{multicol} % Multiple columns
+% Define abstract environment, in a way agnostic of language
+\newcommand{\makeAbstract}[7]{
+  \noindent
+  % LEGACY: uncomment and set path for line-separator image file
+  % \includegraphics[width=\linewidth]{% File for lines separating abstracts on back cover
+  %   %img/LineSPI% SPI
+  %   img/LineBS% BS
+  % }
+  % Comment out the line below in LEGACY version
+  \tikz{\fill[DSColour] (0,0) rectangle (\linewidth,2mm)}
+  \smallskip
+  
+  \begin{otherlanguage}{#1}
+    \noindent
+    \textbf{\color{DSColour}#2:} \enquote{#3}
+    \medskip
+
+    \noindent
+    \textbf{#4:} #5
+
+    \begin{multicols}{2}
+      \noindent
+      \textbf{#6:} #7
+    \end{multicols}
+  \end{otherlanguage}
+}
+
+% # Define inclined hatch pattern with parameters
+%
+% From https://tex.stackexchange.com/a/361530
+%
+% LEGACY: you may comment out all which follows (until end of file) if you use the LEGACY version
+\usetikzlibrary{fadings,patterns}
+%
+% New dimensions and default values
+\newdimen\hatchspread
+\newdimen\hatchthickness
+\newdimen\hatchshift
+\tikzset{
+  hatchspread/.code={\hatchspread=#1},
+  hatchthickness/.code={\hatchthickness=#1},
+  hatchshift/.code={\hatchshift=#1},
+  hatchcolor/.code={\def\hatchcolor{#1}},
+  hatchangle/.code={\pgfmathsetmacro\hatchangle{Mod(#1,180)}},
+  % USER_CONFIG: You may want to change values of the five pattern parameters below
+  % There are default values, which can be overridden at each pattern drawing (hatchcolor is)
+  hatchspread=4pt,
+  hatchthickness=1pt,
+  hatchshift=0pt,
+  hatchcolor=DSColour,
+  hatchangle=-15.82
+}
+%
+% Declare pattern
+\pgfdeclarepatternformonly[\hatchangle,\hatchspread,\hatchthickness,\hatchshift,\hatchcolor]
+{customHatch}
+{\pgfqpoint{\dimexpr-2\hatchthickness}{\dimexpr-2\hatchthickness}}
+{\pgfqpoint{\dimexpr\patternwidth pt+2\hatchthickness}{\dimexpr\patternheight pt+2\hatchthickness}}
+{\pgfpoint{\patternwidth}{\patternheight}} % \patternwidth and patternheight is calculated as follows
+{
+  \pgfsetlinewidth{\hatchthickness}
+  \ifdim\hatchangle pt<90pt
+  \pgfmathsetmacro\patternwidth{\hatchspread*cosec(\hatchangle)}\xdef\patternwidth{\patternwidth}
+  \pgfmathsetmacro\patternheight{\hatchspread*sec(\hatchangle)}\xdef\patternheight{\patternheight}
+  \pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+  \pgfpathlineto{\pgfqpoint{\patternwidth pt}{\patternheight pt}}
+  \else
+  \pgfmathsetmacro\patternwidth{\hatchspread*cosec(\hatchangle)}\xdef\patternwidth{\patternwidth}
+  \pgfmathsetmacro\patternheight{-\hatchspread*sec(\hatchangle)}\xdef\patternheight{\patternheight}
+  \pgfpathmoveto{\pgfqpoint{\patternwidth pt}{0pt}}
+  \pgfpathlineto{\pgfqpoint{0pt}{\patternheight pt}}
+  \fi
+  \pgfsetstrokecolor{\hatchcolor}
+  \pgfusepath{stroke}
+}

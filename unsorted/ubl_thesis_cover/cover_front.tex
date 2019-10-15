@@ -1,0 +1,127 @@
+% This file is to be input where your front cover is to be; that's likely to be the beginning of your environment document.
+% See the beginning of file cover_preamble.tex for explanations and instructions.
+
+\begin{cover}
+  % Draw background image
+  \begin{tikzpicture}[overlay,remember picture]
+    \node[coordinate] at ([yshift=-.13535\paperheight] current page.west) (P1) {P1};
+    \node[coordinate] at ([xshift=\paperwidth] P1) (P2) {P2};
+    \node[coordinate] at ([yshift=0.13645\paperheight] P2) (P3) {P3};
+    \node[coordinate] at ([shift={(-0.33476\paperwidth,0.0669\paperheight)}] P3) (P4) {P4};
+    \node[coordinate] at ([yshift=0.07173\paperheight] P4) (P5) {P5};
+    \node[coordinate] at ([yshift=0.40976\paperheight] P1) (P6) {P6};
+    \node[coordinate] at ([yshift=0.1346\paperheight] P3) (P7) {P7};
+    \node[coordinate] at ([yshift=0.06734\paperheight] P5) (P8) {P8};
+    \node[coordinate] at ([xshift=-0.33611\paperwidth] P8) (P9) {P9};
+    \fill[DSColour!50,path fading=north] (P9) rectangle (P3);
+    \begin{scope}
+      \path[clip, scope fading=north] (P3) -- (P4) -- (P8) -- ([yshift=0.0632\paperheight] P7) -- cycle;
+      \fill[pattern=customHatch,hatchcolor=hatchColourFront] (P3) -- (P4) -- (P7) -- cycle;
+      \path (P8) -- node[coordinate] (P11) {P11} (P3);
+      \foreach \p in {1,...,800}{
+        \fill[dotColourFront] ([shift={(rand*0.17\paperwidth,rand*0.11\paperheight)}] P11) circle (\dotRadius);
+      }
+    \end{scope}
+    \begin{scope}
+      \path[clip] (P5) -- (P9) -- (P8) -- cycle;
+      \fill[pattern=customHatch,hatchcolor=hatchColourFront] (P5) -- (P9) -- (P8) -- cycle;
+      \path (P9) -- node[coordinate] (P10) {P10} (P5);
+      \foreach \p in {1,...,400}{
+        \fill[dotColourFront] ([shift={(rand*.17\paperwidth,rand*.034\paperheight)}] P10) circle (\dotRadius);
+      }
+      \path[fill=white, path fading = south] (P5) rectangle (P9);
+    \end{scope}
+    \fill[DSColour] (P1) -- (P2) -- (P3) -- (P4) -- (P5) -- (P6) -- cycle;
+  \end{tikzpicture}
+
+  % LEGACY: alternative version with image files
+  % Comment out previous tikzpicture environment if you use that version
+  % \begin{tikzpicture}[remember picture,overlay]
+  %   \node[anchor=west,inner sep=0, outer sep=0] 
+  %   at ([shift={(0mm,20mm)}] current page.west) (background)
+  %   {\pgfuseimage{FrontBG}};
+  % \end{tikzpicture}
+
+  % # Typeset text
+  % USER_CONFIG: it's up to you to change alignment, spacing and text formatting below
+  % You may have to adjust spacing to position text with respect to the background drawing.
+  \vspace{4.5cm}
+  \setlength{\parindent}{0cm}% no paragraph indentation on this page
+  % Introduce doctoral school
+  {\scshape
+    {\Huge Thèse de doctorat de}
+    \vspace{2.5cm}
+
+    \LARGE\theInstitution
+    \smallskip
+
+    comue Université Bretagne Loire
+  }
+
+  \vspace{1cm}
+
+  {\Large
+    \textsc{\'Ecole Doctorale N\textordmasculine\:\DSNumber}
+    \smallskip
+    
+    \textit{\DSFullName}
+    \smallskip
+
+    Spécialité: \MySpeciality
+  }
+
+  \vspace{1cm}
+
+  % Introduce thesis
+  \begin{minipage}{.8\pagewidth}
+    % adjust minipage width to control placing of centered and right-aligned text
+    \centering
+    \huge\MyTitleFRA
+    \medskip
+
+    \Large\MySubTitleFRA
+  \end{minipage}
+
+  \bigskip
+
+  \begin{flushright}
+    \huge\MyAuthor
+  \end{flushright}
+
+  \vspace{8mm}
+
+  % Last details about thesis defense
+  Thèse N\textordmasculine\:\MyThesisNumber{}, présentée et soutenue à \MyPlace, le \MyDate
+  \smallskip
+
+  Unité de recherche: \MyInstitute
+
+  \vspace{1cm}
+
+  % # Jury
+  % USER_CONFIG: change roles of members of your jury and supervision; adapt the table parameters depending on the content.
+  % - change values of \myLargeInterRow and \myInterRow to control inter-row vertical spacing
+  % - change the value of \hskip in the tabular definition to control the horizontal spacing between column 2 and 3
+  % - replace column type l with m or p, with width specification; e.g.: \begin{tabular}{lp{4cm}@{\hskip 1.5cm}lp{4cm}}
+  % - use possibly \multirow{<n>}*{<content>} to place <content> on <n> rows if content is repeated
+  \newlength{\myLargeInterRow}
+  \setlength{\myLargeInterRow}{2ex}
+  \newlength{\myInterRow}
+  \setlength{\myInterRow}{1ex}
+  \centering
+  % USER_INPUT: Fill in you jury and supervision composition in the table below
+  \begin{tabular}{ll@{\hskip 1.5cm}ll}
+    \multicolumn{2}{c}{\textbf{Encadrement de thèse}} & \multicolumn{2}{c}{\textbf{Composition du jury}}                         \\[\myLargeInterRow]
+    \multicolumn{2}{c}{Directeur de thèse}            & \multicolumn{2}{c}{Président}                                            \\[\myInterRow]
+    [Prénom Nom] & [Fonction et établissement]        & [Prénom Nom] & [Fonction et établissement] \\[\myLargeInterRow]
+    \multicolumn{2}{c}{Co-encadrants de thèse}        & \multicolumn{2}{c}{Rapporteurs}                                          \\[\myInterRow]
+    [Prénom Nom] & [Fonction et établissement]        & [Prénom Nom] & [Fonction et établissement] \\{}%
+    [Prénom Nom] & [Fonction et établissement]        & [Prénom Nom] & [Fonction et établissement] \\[\myLargeInterRow]
+                 &                                    & \multicolumn{2}{c}{Membres du jury}        \\[\myInterRow]
+                 &                                    & [Prénom Nom] & [Fonction et établissement] \\
+                 &                                    & [Prénom Nom] & [Fonction et établissement] \\[\myLargeInterRow]
+                 &                                    & \multicolumn{2}{c}{Invités}                \\[\myInterRow]
+                 &                                    & [Prénom Nom] & [Fonction et établissement] \\
+                 &                                    & [Prénom Nom] & [Fonction et établissement]
+  \end{tabular}
+\end{cover}

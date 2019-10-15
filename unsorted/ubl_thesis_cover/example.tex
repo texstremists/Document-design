@@ -1,0 +1,37 @@
+% Here is an example of likely document class for a thesis
+\documentclass[a4paper,twoside,openright]{memoir}
+
+% Input cover_premable.tex in your preamble
+\input{cover_preamble}
+% this whole example assumes all files are in the same directory as example.tex
+
+% Only for the purpose of this example
+\usepackage{lipsum} % Provides \lipsum for filler text.
+\setmainfont[]{Libertinus Serif} % An awesome typeface, to be used for main document (not for cover)
+
+\begin{document}
+
+
+% Input cover_front.tex at the beginning of your document environment
+% It will use the typeface defined in the cover template, whatever you defined above
+\input{cover_front}
+
+
+% Some content. Whatever. It should start on an odd-numbered page (page 3, in this example)
+% It will use the main typeface defined above
+\chapter{The best chapter}
+
+\section{This is a section}
+
+\subsection{This is a subsection}
+
+\subsubsection{This is\dots{} You have got the idea}
+
+\lipsum[4-15]
+
+
+% Input cover_back.tex at the end of your document environment
+% The back cover should be on an even-numbered page (e.g. p. 6)
+\input{cover_back}
+
+\end{document}

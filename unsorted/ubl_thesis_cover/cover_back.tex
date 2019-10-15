@@ -1,0 +1,73 @@
+% Clear everything and jump any odd-numbered page
+\clearoddpage
+
+% Now that we are on an even-numbered page, start back cover
+\begin{cover}
+
+  % # Background image
+  % Upper left triangle
+  \begin{tikzpicture}[overlay,remember picture]
+    \node[coordinate] at ([yshift=-.235\paperheight] current page.north west) (P1) {P1};
+    \node[coordinate] at ([shift={(.32524\paperwidth,0.066331\paperheight)}] P1) (P2) {P2};
+    \node[coordinate] at ([yshift=.132662\paperheight] P1) (P3) {P3};
+    \node[coordinate] at ([yshift=.11662\paperheight] P2) (P4) {P4};
+    \path (P1) -- node[coordinate] (P5) {P5} (P4);
+    \begin{scope}
+      \path[clip,scope fading=north] (P1) -- (P2) -- (P4) -- ++(-.32524\paperwidth,0) ;
+      \foreach \p in {1,...,400}{
+        \fill[dotColourBack] ([shift={(rand*.165\paperwidth,rand*.095\paperheight)}] P5) circle (\dotRadius);
+      }
+    \end{scope}
+    \fill[pattern=customHatch,hatchcolor=hatchColourBack,hatchangle=15.82,path fading=south] (P1) -- (P2) -- (P3) -- cycle;
+    \fill[white,top color=white,path fading=north] ([yshift=-.05\paperheight]P1) rectangle (P4);
+  \end{tikzpicture}
+  % Upper middle triangle
+  \begin{tikzpicture}[overlay,remember picture]
+    \node[coordinate] at ([shift={(.39\paperwidth,-.064\paperheight)}] current page.north west) (P1) {P1};
+    \node[coordinate] at ([shift={(.21714\paperwidth,.0435\paperheight)}] P1) (P2) {P2};
+    \node[coordinate] at ([yshift=.0435\paperheight] P1) (P3) {P3};
+    \node[coordinate] at ([yshift=.07\paperheight] P2) (P4) {P4};
+    \fill[pattern=customHatch,hatchcolor=hatchColourBack,hatchangle=15.82,path fading=north] (P1) -- (P2) -- (P3) -- cycle;
+  \end{tikzpicture}
+  % Lower right triangle
+  \begin{tikzpicture}[overlay,remember picture]
+    \node[coordinate] at ([shift={(0,0)}] current page.south east) (P1) {P1};
+    \node[coordinate] at ([shift={(-.2581\paperwidth,.05171\paperheight)}] P1) (P2) {P2};
+    \node[coordinate] at ([yshift=.10342\paperheight] P1) (P3) {P3};
+    \fill[pattern=customHatch,hatchcolor=hatchColourBack,hatchangle=15.82] (P1) -- (P2) -- (P3) -- cycle;
+  \end{tikzpicture}
+
+  
+  % LEGACY: comment out the three tikzpicture environments above and uncomment the two below
+  % \begin{tikzpicture}[remember picture,overlay]
+  %   \node[anchor=west,inner sep=0, outer sep=0] 
+  %   at ([shift={(0mm,20mm)}] current page.west) (background)
+  %   {\pgfuseimage{FrontBG}};
+  % \end{tikzpicture}
+  % \begin{tikzpicture}[remember picture,overlay]
+  %   \node[anchor=north west] 
+  %   at (%
+  %   %   [yshift=-12mm]% SPI
+  %   [shift={(10.9mm,3mm)}]% BS
+  %   current page.north west) (topBG)
+  %   {\pgfuseimage{BackBGTop}};	
+  %   %   
+  %   \node[anchor=south east]
+  %   at (%
+  %   %   nothing % SPI
+  %   [yshift=-12mm]% BS
+  %   current page.south east) (bottomBG)
+  %   {\pgfuseimage{BackBGBottom}};	
+  % \end{tikzpicture}
+
+  \vspace{4cm}
+
+  % # Abtracts
+  % USER_CONFIG: Choose languages and corresponding words.
+  % You may have to tweak vertical spacing.
+  \makeAbstract{french}{Titre}{\MyTitleFRA}{Mots-clefs}{\MyKeywordsFRA}{Résumé}{\MyAbstractFRA}
+  \bigskip
+
+  \makeAbstract{british}{Title}{\MyTitleENG}{Keywords}{\MyKeywordsENG}{Abstract}{\MyAbstractENG}
+  
+\end{cover}
