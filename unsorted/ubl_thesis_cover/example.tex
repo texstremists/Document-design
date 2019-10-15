@@ -1,7 +1,7 @@
 % Here is an example of likely document class for a thesis
 \documentclass[a4paper,twoside,openright]{memoir}
 
-% Input cover_premable.tex in your preamble
+% Input cover_preamble.tex in your preamble
 \input{cover_preamble}
 % this whole example assumes all files are in the same directory as example.tex
 
@@ -17,7 +17,7 @@
 \input{cover_front}
 
 
-% Some content. Whatever. It should start on an odd-numbered page (page 3, in this example)
+% Some content. Whatever. It will start on an odd-numbered page (page 3, in this example)
 % It will use the main typeface defined above
 \chapter{The best chapter}
 
@@ -25,13 +25,13 @@
 
 \subsection{This is a subsection}
 
-\subsubsection{This is\dots{} You have got the idea}
+\subsubsection{This is\dots{} You've got the idea}
 
 \lipsum[4-15]
 
 
 % Input cover_back.tex at the end of your document environment
-% The back cover should be on an even-numbered page (e.g. p. 6)
+% The back cover will be on an even-numbered page (e.g. p. 6)
 \input{cover_back}
 
 \end{document}

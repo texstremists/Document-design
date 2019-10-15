@@ -25,7 +25,7 @@
 % - Be careful if you move files in different directories. You will have to ensure that \input commands have the correct path.
 % - You may have to solve conflicts between cover_preamble.tex and the rest of your preamble (package loaded twice, wrong loading order, incompatible packages, etc.)
 % - This template is only compatible with the compiler lualatex, for the ability to change font families easily.
-% - If you use page dimensions other than A4, you will have to adjust absolute distances (e.g. vertical spacing, margins). Note that the drawings are coded relatively to page dimensions, so they should not be affected.
+% - If you use page dimensions other than A4, you will have to adjust absolute distances (e.g. vertical spacing, margins). Note that the drawings are coded relatively to page dimensions, so they should not be affected (except hatch inclination).
 %
 % # LEGACY version
 %
@@ -61,9 +61,11 @@
 \newcommand{\MyKeywordsFRA}{[De 3 à 6 mots-clefs]}
 \newcommand{\MyKeywordsENG}{[From 3 to 6 keywords]}
 \newcommand{\MyAbstractFRA}{
+  % Write your French abstract here (instead of \lispum filler)
   \lipsum[15-17]% Requires lipsum package (but that's only for example)
 }
 \newcommand{\MyAbstractENG}{
+  % Write your English abstract here (instead of \lispum filler)
   \lipsum[18-20]% Requires lipsum package (but that's only for example)
 }
 
@@ -193,14 +195,14 @@
 \makeatother
 
 
-% # Define abstract environment
+% # Define makeAbstract command
 
 % USER_CONFIG: choose languages of your thesis (load main one first)
 \usepackage[french,british]{babel}
 
 \usepackage[babel=true]{csquotes} % babel must be loaded before
 \usepackage{multicol} % Multiple columns
-% Define abstract environment, in a way agnostic of language
+% Define makeAbstract environment, in a way agnostic of language
 \newcommand{\makeAbstract}[7]{
   \noindent
   % LEGACY: uncomment and set path for line-separator image file
