@@ -26,6 +26,7 @@
 % - You may have to solve conflicts between cover_preamble.tex and the rest of your preamble (package loaded twice, wrong loading order, incompatible packages, etc.)
 % - This template is only compatible with the compiler lualatex, for the ability to change font families easily.
 % - If you use page dimensions other than A4, you will have to adjust absolute distances (e.g. vertical spacing, margins). Note that the drawings are coded relatively to page dimensions, so they should not be affected (except hatch inclination).
+% - The PGF macro Mod (used for hatch pattern the end of this file) has a known bug fixed in 2017; if you use a LaTeX distribution older than 2018 and face an error message about Mod, consider upgrading.
 %
 % # LEGACY version
 %
@@ -245,7 +246,7 @@
   hatchthickness/.code={\hatchthickness=#1},
   hatchshift/.code={\hatchshift=#1},
   hatchcolor/.code={\def\hatchcolor{#1}},
-  hatchangle/.code={\pgfmathsetmacro\hatchangle{Mod(#1,180)}},
+  hatchangle/.code={\pgfmathsetmacro\hatchangle{Mod(#1,180)}},% Mod throws an error in Tex Live 2017
   % USER_CONFIG: You may want to change values of the five pattern parameters below
   % There are default values, which can be overridden at each pattern drawing (hatchcolor is)
   hatchspread=4pt,
