@@ -11,6 +11,7 @@ Start your visit with our [wiki](https://github.com/texstremists/Document-design
 ## Unsorted
 
 - [label-print](https://github.com/texstremists/Document-design/tree/master/unsorted/labelPrint): a template for printing neat labels with custom size
+- [merge-pdf](https://github.com/texstremists/Document-design/tree/master/unsorted/mergePdf): an example how to combine multiple PDF files into one
 - [algorithm-examples](https://github.com/texstremists/Document-design/blob/master/unsorted/algorithmExamples.tex): examples of algorithm typesetting in LaTeX
 - [template-Spi-Manuscript](https://github.com/texstremists/Document-design/blob/master/unsorted/template-Spi-Manuscript/): a thesis template featuring the new **SPI cover** 
 - [differential-operator](https://github.com/texstremists/Document-design/blob/master/unsorted/differential-operator.tex): example on how (not) to typeset the differential operator; see [wiki](https://github.com/texstremists/Document-design/wiki/Typesetting-math#differential-operator-definition) for explanations

@@ -1,0 +1,18 @@
+% Make sure that file1.pdf, file2.pdf, file1.pax and file2.pax exist before compiling this document.
+% To install pax, follow the instructions on https://tex.stackexchange.com/a/44104/119426
+
+\documentclass[a4paper]{article}
+
+\usepackage[margin=0mm]{geometry} % preserve the margins from the original files
+\usepackage{graphicx} % only needed if you choose to use \includegraphics
+\usepackage{pdfpages} % only needed if you choose \includepdf
+\usepackage{pax} % to preserve the hyperlinks
+
+
+\begin{document}
+   
+	% May also use \includegraphics, but that can only include a single page from a PDF
+	\includepdf[pages=-, width=\textwidth]{file1.pdf}
+	\includepdf[pages=-, width=\textwidth]{file2.pdf}
+   
+\end{document}
